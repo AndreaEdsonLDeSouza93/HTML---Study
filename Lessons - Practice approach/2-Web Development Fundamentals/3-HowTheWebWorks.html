@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-HowTheWebWorks</title>
+</head>
+<body>
+    <h1>3-How The Web Works</h1>
+
+    <a href="/index.html">Index</a>
+
+    <div>
+        http://www.something.com => <mark>URL</mark> => Uniform Resource Location<br>
+
+        <ul>
+            Resources (URL is used to locate these resources in the internet)
+
+            <li>Web Pages (HTML documents)</li>
+            <li>Images</li>
+            <li>Video files</li>
+            <li>Video files</li>
+            <li>Fonts</li>
+            <li>... and so on ...</li>
+        </ul>
+
+        <ol>
+            Client-Server model
+            <li>BROWSER : Client</li>
+            <li>SERVER</li>
+        </ol>
+
+        <p>The client <mark>requests</mark> the server a data, the server <mark>provide</mark>. The client receive the data and it display it.</p>
+
+        <p><strong>HTTP:</strong> Hypertext Transfer Protocol.</p>
+
+        <ul>
+            <li>HTTP</li>
+            <li>HTTPS: HTTP + Encryption</li>
+        </ul>
+
+        <p>
+            Example of a <strong>Message Structure:</strong> <br>
+            
+            GET /index.html HTTP/1.1 <br>
+            Host: www.website.com <br>
+            Accept-Language: en-us <br> 
+        </p>
+
+        <p>it want to <mark>GET</mark> a <mark>index.html</mark> using <mark>HTTP/1.1</mark></p>
+
+
+        <ol>
+            <li>HTTP Request..</li>
+            <li>HTTP Response..</li>
+        </ol>
+
+        <p>Example of a response:</p>
+
+        <p>
+            HTTP/1.1 200 OK <br>
+            Date: 7 Feb 2024 9:45 <br>
+            Content-Type: text/html <br>
+
+            &lt;!DOCTYPE html&gt; <br>
+            &lt;html&gt; <br>
+            ... <br>
+            &lt;/html&gt;
+        </p>
+
+        <p>
+            <strong>DOM: Document Object Model</strong> <br>
+            <p>Basically all the elements in our HTML document. The building blocks of our page like p, links, imgs etc..</p> <br>
+            &lt;!DOCTYPE html&gt; <br>
+            &lt;html&gt; <br>
+            ... <br>
+            &lt;/html&gt;
+        </p>
+
+
+        <p>If there are others <mark>url</mark> inside our dom, those url that will trigger a request towards those resources.</p>
+        <p>Once those <mark>calls (http request)</mark> has been made, the <mark>browser</mark> will render the HTML document.</p>
+
+        <ol>
+            <li>BROWSER send an HTTP request to the server.</li>
+            <li>The BROWSER receive an HTTP response.</li>
+            <li>The response contains an HTML Document.</li>
+            <li>The BRO-WSER reads the HTML Doc. and constuct with it the DOM, after it will render the page.</li>
+        </ol>
+    </div>
+
+    <a href="#">Back on Top Baby</a>
+
+</body>
+</html>
