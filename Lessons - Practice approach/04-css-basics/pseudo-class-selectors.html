@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pseudo-class-selectors</title>
+
+    <style>
+      body {
+        margin: 10px;
+      }
+
+      .first{
+        font-weight: bold;
+      }
+
+      div.first {
+        color: brown;
+      }
+
+      /* pseudo-classes */
+      .second-article :first-child {
+        color: blue;
+        background-color: whitesmoke;
+      }
+
+      .second-article :last-child {
+        color: whitesmoke;
+        background-color: blue;
+      }
+
+      .third-article :first-of-type {
+        color: darkorange;
+        background-color: brown;
+      }
+
+      .fourth-article p:first-of-type {
+        color: black;
+        background-color: yellow;
+      }
+
+      .fourth-article p:last-of-type {
+        color: yellow;
+        background-color: black;
+      }
+
+      ul li:nth-child(odd){
+        color: cornsilk;
+        background-color: cornflowerblue;
+      }
+
+      ul li:nth-child(even){
+        color: cornflowerblue;
+        background-color: cornsilk;
+      }
+
+      ol li:nth-child(3n) {
+        background-color: crimson;
+        color: blanchedalmond;
+      }
+
+      a:visited,
+      a:link {
+        color: dodgerblue;
+      }
+
+      /* 
+      hover : when you go over with the mouse
+      focus: when you use the mouse key to focus on the hyperlink
+      */
+      a:hover, 
+      a:focus {
+        color: navy;
+      }
+
+    </style>
+
+  </head>
+  <body>
+    <h1>pseudo-class-selectors</h1>
+
+    <a href="/index.html" style="display: block;">Index</a>
+
+    <article>
+      <p class="first">Lorem ipsum dolor sit amet.</p>
+      <p>Cupiditate aliquam sint mollitia voluptatum.</p>
+      <div class="first">Lorem ipsum dolor sit amet.</div>
+    </article>
+
+    <br>
+    <hr>
+
+    <article class="second-article">
+      <p>Lorem, ipsum dolor.</p>
+      <p>Excepturi, nam qui!</p>
+      <p>Earum, sapiente dolore!</p>
+      <p>Quis, doloribus rerum.</p>
+    </article>
+
+    <br>
+    <hr>
+
+    <article class="third-article">
+      <h6>Item 1</h6>
+      <h6>Item 2</h6>
+      <h6>Item 3</h6>
+
+      <p>Lorem, ipsum dolor.</p>
+      <p>Porro, labore placeat.</p>
+      <p>Voluptate, impedit deserunt!</p>
+    </article>
+
+    <br>
+    <hr>
+
+    <article class="fourth-article">
+      <p>Lorem, ipsum dolor.</p>
+      <p>Optio, aspernatur deserunt.</p>
+      <p>Ducimus, adipisci debitis?</p>
+      <p>Nobis, iste quibusdam!</p>
+    </article>
+
+    <br>
+    <hr>
+
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+      <li>Item 6</li>
+      <li>Item 7</li>
+      <li>Item 8</li>
+      <li>Item 9</li>
+      <li>Item 10</li>
+    </ul>
+
+    <br>
+    <hr>
+
+    <ol>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Dolor, libero sequi!</li>
+      <li>Consequatur, dolorem provident.</li>
+      <li>Dicta, repellat dolor.</li>
+      <li>Fugit, velit magnam?</li>
+      <li>Doloremque, facere ex?</li>
+      <li>Impedit, adipisci veniam!</li>
+      <li>Consequatur, nam tempora.</li>
+      <li>Corrupti, delectus dolore.</li>
+      <li>Eligendi, nisi hic.</li>
+    </ol>
+
+    <a href="#">Back on top</a>
+
+  </body>
+</html>

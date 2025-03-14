@@ -1,25 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>relational-selectors</title>
-</head>
-<body>
+  </head>
+  
+  <style>
+    #paragraphs p {
+      color: blue;
+      background-color: antiquewhite;
+      border-radius: 3px;
+      padding: 2px;
+      border: 1px solid blue;
+    }
+
+    /* The first child */
+    #paragraphs > p {
+      background-color: bisque;
+      color: brown;
+      border-radius: 3px;
+      padding: 2px;
+      border: 1px solid brown;
+    }
+
+    /* The first paragraph after the <section> part */
+    #paragraphs + p {
+      background-color: black;
+      color: aliceblue;
+      border-radius: 3px;
+      padding: 2px;
+      border: 1px solid aliceblue;
+      display: inline-block;
+    }
+
+    /* All paragraphs after the p2 section */
+    #p2 ~ p {
+      color: aquamarine;
+      background-color: cadetblue;
+      border: aquamarine;
+      border-radius: 3px;
+      padding: 2px;
+      border: 1px solid aliceblue;
+      display: block;
+    }
+
+    a {
+      display: block;
+      font-size: 22px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      text-decoration: none;
+    }
+
+  </style>
+
+  <body>
     <h1>relational-selectors</h1>
 
-    <a href="/index.html" style="display: block;">index</a>
+    <a href="/index.html" style="display: block">index</a>
 
     <ul>
-        <li>pro: cleaner markup</li>
-        <li>con: can be fragile</li>
-        <li>con: not as fast as basic selectors</li>
+      <li>pro: cleaner markup</li>
+      <li>con: can be fragile</li>
+      <li>con: not as fast as basic selectors</li>
+      <li>con: it is not as fast as others selectors, because every element is basically check before applying the style to it.</li>
     </ul>
 
-    <quote>
-        Premature optimizaiton is the root of all evils.
-        <a href="https://pt.wikipedia.org/wiki/Donald_Knuth" target="_blank" style="display: block;"><em>Donald Knuth</em></a>
-    </quote>
+    <section id="paragraphs">
+      
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio, tempore.</p>
+      <p>Beatae eligendi vel veritatis laudantium pariatur? Vel dolorem porro sint.</p>
+      
+      <article>
+        <p>Sapiente sed iusto sunt! Debitis facere quam aliquid voluptas maxime!</p>
+        <p>Magnam, fugit quam iusto nobis quae expedita voluptatem nam voluptas!</p>
+      </article>
+      
+      <p>Possimus perferendis adipisci nisi atque cum exercitationem facilis blanditiis numquam?</p>
+      <p>Dolor itaque necessitatibus eligendi rem earum distinctio voluptates rerum veritatis.</p>
+      <p>Ducimus dolorem dolore dicta provident hic nisi ipsam. Laborum, voluptate.</p>
+      
+      <div>
+        <p>Reprehenderit quia dignissimos iure odio, voluptates maxime quasi dolores sapiente!</p>
+      </div>
+      
+      <p>Ipsam temporibus atque at blanditiis inventore doloremque dolore, natus ad!</p>
+      <p>Illum ipsum quae recusandae dolores cumque incidunt quo, quia laudantium?</p>
+    
+    </section>
 
-</body>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Ad ex dolorem ab dolor.</p>
+
+    <section id="p2">
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, repellat!</p>
+      <p>Cum doloribus corrupti praesentium ipsum magni amet nihil sint vel?</p>
+    </section>
+
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Facere veritatis reprehenderit facilis harum.</p>
+    <p>Quos numquam molestias rem ex.</p>
+
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, quis?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, sequi?</p>
+
+    <quote>
+      Premature optimizaiton is the root of all evils.
+      <a href="https://pt.wikipedia.org/wiki/Donald_Knuth" target="_blank" style="display: block">
+        <em>Donald Knuth</em>
+      </a>
+    </quote>
+  </body>
 </html>
