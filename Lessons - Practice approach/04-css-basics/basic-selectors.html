@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basic-selectors</title>
+
+    <link rel="stylesheet" href="/CSS/normalize.css">
+    <link rel="stylesheet" href="/CSS/index-style.css">
+</head>
+<body>
+    <h1>basic-selectors</h1>
+
+    <a href="/index.html" style="display: block;">Index</a>
+
+    <ul>
+        <li>Type</li>
+        <li>ID</li>
+        <li>Class</li>
+        <li>Attribute</li>
+    </ul>
+
+    <h2>Type</h2>
+    
+    <p>Example, if you use an html element like <strong>body, p, div etc..</strong></p>
+
+    <h2>ID</h2>
+    
+    <p>You have an element &lt;p id="text"&gt; etc... </p>
+    <p>You can select that element and modify the text inside selecting the ID</p>
+    <p>Here's how you do it -> #text { css rules }</p>
+    <p>You can have only one ID per element. You can't have two identical ID in two differents elements</p>
+
+    <h2>Class</h2>
+    <p>You can have multiple elements with the same class.</p>
+    <p>example of class &lt;p class="text"&gt; etc...</p>
+    <p>Here's how you do it -> .text { css rules }</p>
+
+    <h2>Attribute</h2>
+    <a href="https://google.com" target="_blank" style="display: block;">google</a>
+    <p>Selectiong an element using an attribute is not very common.</p>
+    <p>Here we have a link with the target attribute -> target="_blank"</p>
+    <p>Here's how you do it -> a[target] { css rules } or a[target="_blank"] { css rules }</p>
+    <p>Another example would be a[href="https://google.com"] { css rules }</p>
+    <p>a[href*="google"]{ css rules } -> it checks for every a href with the word google in it.</p>
+    <p>this checks if a value stars with some particular value -> a[href^="https"]{ css rules }</p>
+    <p>href$="if_it_end_with_the_value_between_double_quotes"</p>
+    <p>We can combine multiple conditions.</p>
+    <p>Example: a[href^="https"][href$=".com"]</p>
+</body>
+</html>
