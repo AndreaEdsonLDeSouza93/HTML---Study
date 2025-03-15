@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pseudo-element-selectors</title>
+</head>
+
+<style>
+    .first-letter {
+        background-color: black;
+        color: white;
+    }
+
+    h2::first-letter {
+        background-color: blue;
+        color: white;
+    }
+
+    ::selection {
+        color: pink;
+        background-color: black;
+    }
+
+    h1::selection{
+        background-color: darkblue;
+        color: aliceblue;
+    }
+
+    article::first-line {
+        font-style: italic;
+        color: cornsilk;
+        background-color: chocolate;
+    }
+
+    p::before {
+    content: "";
+    display: block;
+    background-image: url('/Multimedia/batman.jpg');
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    border: 1px solid black;
+    }
+
+    hr::before{
+        content: "... batman is here! ...";
+        display: block;
+    }
+
+    hr::after {
+        content: "Be afraid Joker!!!";
+        display: block;
+    }
+
+    hr {
+        border: 2px solid black;
+        margin:  10px 0;
+    }
+
+</style>
+
+<body>
+    <h1>pseudo-element-selectors</h1>
+
+    <a href="/index.html">Index</a>
+
+    <hr>
+
+    <h2>Lorem, ipsum dolor.</h2>
+    
+    <hr>
+
+    <h4><span class="first-letter">Lorem</span> ipsum dolor sit amet.</h4>
+    
+    <hr>
+    
+    <p>Lorem ipsum dolor sit amet.</p>
+    
+    <hr>
+
+    <div>Lorem ipsum dolor sit amet.</div>
+    
+    <hr>
+
+    <p>Lorem ipsum dolor sit amet.</p>
+    
+    <hr>
+    
+    <article>
+        Lorem ipsum dolor sit amet. <br>
+        Lorem ipsum dolor sit amet. <br>
+        Lorem ipsum dolor sit.
+    
+    </article>
+    
+    <hr>
+
+    <section>Lorem ipsum dolor sit amet.</section>
+
+
+    
+</body>
+</html>

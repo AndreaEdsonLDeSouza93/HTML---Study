@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selectors-specificty</title>
+</head>
+
+<style>
+    /* !important makes the rule unbrakable*/
+    h1 {
+        color: crimson !important;
+    }
+
+    .heading#first-heading{
+        color: black;
+    }
+
+    h2 {
+        color: aquamarine;
+        background-color: blue;
+    }
+
+    .heading {
+        color: blue;
+        background-color: aquamarine;
+    }
+
+    h2.heading#last-title {
+        color: cornsilk;
+        background-color: crimson;
+    }
+
+    p{
+        font-weight: bold;
+    }
+
+    .paragraphs {
+        font-weight: normal;
+        font-style: italic;
+    }
+
+    #simple-paragraph{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: normal;
+        color: ghostwhite;
+        background-color: darkblue;
+    }
+
+</style>
+
+<body>
+    <h1 class="heading" id="first-heading">selectors-specificty</h1>
+
+    <a href="/index.html" style="display: block;">Index</a>
+
+    <h2>Scale</h2>
+
+    <p>General rule: ID > Class > Tag</p>
+
+    <p>Example -> #product > .products -> ul</p>
+
+    <p>We can combine multiple selectors.</p>
+
+    <ul>
+        <mark>0,0,0</mark> is the point system
+
+        <li>first 0 is ID</li>
+        <li>second 0 is Class</li>
+        <li>third 0 is Tag</li>
+
+        <hr>
+        <li>Practicle example:</li>
+        <hr>
+
+        <li>.products#product > #product</li>
+        <li>110 > 100</li>
+
+        <hr>
+
+        <li>h2.section.title > h2</li>
+        <li>011 > 001</li>
+
+        <hr>
+
+        <li>
+            Finally you can use the keyword <strong>!important</strong> if you want to fix that rule and make it permanent. 
+        </li>
+    </ul>
+
+    <hr>
+
+    <h2>Heading 1</h2>
+    <p id="first-paragraph">Lorem ipsum dolor sit.</p>
+    <h2 class="heading">Heading 2</h2>
+    <p class="paragraphs">Lorem ipsum dolor sit.</p>
+    <h2 class="heading">Heading 3</h2>
+    <p class="paragraphs">Lorem ipsum dolor sit.</p>
+    <h2 class="heading">Heading 4</h2>
+    <p>Lorem ipsum dolor sit.</p>
+    <h2 class="heading" id="last-title">Heading 5</h2>
+    <p id="simple-paragraph">Lorem ipsum dolor sit.</p>
+</body>
+</html>
