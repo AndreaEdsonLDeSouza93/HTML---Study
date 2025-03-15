@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>colors</title>
+  </head>
+  <style>
+    a {
+      background-color: blue;
+      color: wheat;
+      border-radius: 0.2rem; /* Using rem for scalability */
+      border: 1px solid wheat;
+      padding: 0.3rem; /* Using rem for responsiveness */
+      transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+    }
+
+    a:hover {
+      background-color: wheat;
+      color: blue;
+    }
+
+    a:active {
+      background-color: wheat;
+      color: darkblue;
+    }
+
+    a:focus {
+      outline: 2px dashed wheat; /* Adding focus outline for accessibility */
+      outline-offset: 2px;
+    }
+
+    /* COLORS */
+
+    /* HEX color example */
+    #box-1 {
+      background-color: #3498db; /* Hexadecimal color */
+      color: #ffffff; /* Hex for white */
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+    }
+
+    /* RGB color example */
+    #box-2 {
+      background-color: rgb(255, 99, 71); /* RGB color */
+      color: rgb(255, 255, 255); /* RGB for white */
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+    }
+
+    /* HSL color example */
+    #box-3 {
+      background-color: hsl(120, 100%, 50%); /* HSL color */
+      color: hsl(0, 0%, 100%); /* HSL for white */
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+    }
+
+    /* Named color example */
+    #box-4 {
+      background-color: coral; /* Named color */
+      color: black; /* Simple named color */
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+    }
+
+    /* Transparent color example */
+    #box-5 {
+      background-color: rgba(
+        255,
+        0,
+        0,
+        0.5
+      ); /* RGB with alpha for transparency */
+      color: rgba(255, 255, 255, 1); /* Fully opaque white */
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <h1>colors</h1>
+
+    <a href="/index.html" style="display: inline-block">Index</a>
+
+    <a href="/04-css-basics/hex-converter.html" style="display: inline-block"
+      >Color converter</a
+    >
+
+    <div id="box-1">Hex Color</div>
+    <div id="box-2">RGB Color</div>
+    <div id="box-3">HSL Color</div>
+    <div id="box-4">Named Color</div>
+    <div id="box-5">Transparent Color</div>
+
+    <h2>HEX colors</h2>
+
+    <p style="font-family: Arial, sans-serif; line-height: 1.6">
+      <mark style="background-color: yellow; font-weight: bold">#FFFFFF</mark
+      ><br />
+      |RR|GG|BB|<br />
+      RGB(255, 255, 255)<br />
+      <span style="color: grey">Range:</span> (00 - FF) === (0 - 255)<br />
+      <br />
+      <span style="color: red">#FF 00 00</span> → RR GG BB (So it would be
+      red.)<br />
+      <span style="color: black">#00 00 00</span> → black<br />
+      <span style="color: white; background-color: black">#FF FF FF</span> →
+      white<br />
+      <span style="color: grey">#78 78 78</span> → mid-tone grey<br />
+      <span style="color: pink">#F 0 C</span> ===
+      <span style="color: pink">#FF 00 CC</span><br />
+    </p>
+
+    <hr />
+    <hr />
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Color Format Explanation</title>
+      </head>
+      <body>
+        <h1 style="color: #3498db">Explanation of Each Color Format:</h1>
+
+        <h2 style="color: #000080">Hexadecimal (HEX):</h2>
+        <p>
+          Format: <b>#RRGGBB</b> (each pair represents red, green, and blue
+          intensities in hexadecimal notation).
+        </p>
+        <p>
+          Example: <span style="color: #3498db">#3498db</span> corresponds to:
+        </p>
+        <ul>
+          <li>Red: 34 in hexadecimal = 52 in decimal.</li>
+          <li>Green: 98 in hexadecimal = 152 in decimal.</li>
+          <li>Blue: db in hexadecimal = 219 in decimal.</li>
+        </ul>
+        <p>
+          HEX colors range from
+          <span style="color: #000000">#000000</span> (black) to
+          <span style="color: #ffffff">#FFFFFF</span> (white).
+        </p>
+
+        <h2 style="color: #ff5733">RGB (Red, Green, Blue):</h2>
+        <p>
+          Format: <b>rgb(r, g, b)</b> where r, g, and b are integers between 0
+          and 255.
+        </p>
+        <p>
+          Example:
+          <span style="color: rgb(255, 99, 71)">rgb(255, 99, 71)</span> means:
+        </p>
+        <ul>
+          <li>255 (maximum red intensity),</li>
+          <li>99 (medium green intensity),</li>
+          <li>71 (medium-low blue intensity).</li>
+        </ul>
+        <p>The result is a tomato-like color.</p>
+
+        <h2 style="color: #2ecc71">HSL (Hue, Saturation, Lightness):</h2>
+        <p>Format: <b>hsl(h, s, l)</b> where:</p>
+        <ul>
+          <li>
+            <b>h</b> = Hue (angle on the color wheel: 0° is red, 120° is green,
+            240° is blue).
+          </li>
+          <li>
+            <b>s</b> = Saturation (0% is grayscale, 100% is full color
+            intensity).
+          </li>
+          <li>
+            <b>l</b> = Lightness (0% is black, 50% is normal, 100% is white).
+          </li>
+        </ul>
+        <p>
+          Example:
+          <span style="color: hsl(120, 100%, 50%)">hsl(120, 100%, 50%)</span> is
+          pure green (120° hue), fully saturated and with normal brightness.
+        </p>
+
+        <h2 style="color: #ff7f50">Named Colors:</h2>
+        <p>
+          CSS supports a list of predefined color names, like <b>coral</b>,
+          <b>salmon</b>, <b>navy</b>, etc.
+        </p>
+        <p>
+          Example: <span style="color: coral">coral</span> is a light
+          reddish-orange color.
+        </p>
+
+        <h2 style="color: #d35400">RGBA (RGB with Alpha):</h2>
+        <p>
+          Format: <b>rgba(r, g, b, a)</b> where <b>a</b> is the alpha channel
+          (opacity, from 0.0 to 1.0).
+        </p>
+        <p>
+          Example:
+          <span style="color: rgba(255, 0, 0, 0.5)">rgba(255, 0, 0, 0.5)</span>
+          gives semi-transparent red.
+        </p>
+
+        <h2 style="color: #34495e">
+          General Tips to Understand HEX and RGB Colors:
+        </h2>
+        <h3>HEX to RGB Conversion:</h3>
+        <p>
+          Each HEX pair (e.g., 34 for red) represents a value from 00 (0) to FF
+          (255).
+        </p>
+        <p>To calculate manually, convert the hexadecimal value to decimal:</p>
+        <p><b>34 in HEX → (3 × 16) + 4 = 52 in RGB.</b></p>
+
+        <h3>RGB to HEX Conversion:</h3>
+        <p>Reverse the process: Convert each RGB value to hexadecimal.</p>
+        <p>Example: <b>rgb(52, 152, 219)</b>:</p>
+        <ul>
+          <li>52 → 34</li>
+          <li>152 → 98</li>
+          <li>219 → db</li>
+        </ul>
+        <p>Result: <span style="color: #3498db">#3498db</span>.</p>
+
+        <h3>HSL to RGB Conversion:</h3>
+        <p>
+          This involves mathematical transformations (more complex). Use online
+          tools or libraries for accurate conversions.
+        </p>
+
+        <h3>Color Selection:</h3>
+        <p>
+          Tools like
+          <a href="https://coolors.co/" style="color: #1f618d; background-color:antiquewhite;">Coolors</a> or
+          <a href="https://color.adobe.com/" style="color: #1f618d; background-color:antiquewhite;"
+            >Adobe Color</a
+          >
+          can help visualize and pick harmonious color palettes.
+        </p>
+        <p>
+          Experiment with varying saturation and lightness in HSL for pleasing
+          effects.
+        </p>
+      </body>
+    </html>
+  </body>
+</html>

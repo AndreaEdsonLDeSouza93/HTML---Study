@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>inheritance</title>
+
+    <style>
+      a {
+        background-color: brown;
+        color: cornsilk;
+        border-radius: 0.2rem; /* Using rem for scalability */
+        border: 1px solid cornsilk;
+        padding: 0.3rem; /* Using rem for responsiveness */
+        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+      }
+
+      a:hover {
+        background-color: cornsilk;
+        color: brown;
+      }
+
+      a:active {
+        background-color: burlywood;
+        color: brown;
+      }
+
+      a:focus {
+        outline: 2px dashed cornsilk; /* Adding focus outline for accessibility */
+        outline-offset: 2px;
+      }
+
+      p {
+        color: darkblue;
+        border: 1px solid black;
+        margin: 15px 0;
+      }
+
+      .inherit {
+        color: initial;
+      }
+
+      #deep {
+        border: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>inheritance</h1>
+
+    <a href="/index.html" style="display: inline-block">Index</a>
+
+    <p>Lorem <mark>ipsum</mark> dolor sit amet.</p>
+    <p>Lorem <strong>ipsum</strong> dolor sit amet.</p>
+    <p>Lorem <strong class="inherit">ipsum</strong> dolor sit amet.</p>
+    <p>Lorem <strong class="inherit" id="deep">ipsum</strong> dolor sit amet.</p>
+
+  </body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hex-converter</title>
+    <style>
+      a {
+        background-color: blue;
+        color: wheat;
+        border-radius: 0.2rem; /* Using rem for scalability */
+        border: 1px solid wheat;
+        padding: 0.3rem; /* Using rem for responsiveness */
+        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+        margin: 10px 4px;
+      }
+
+      a:hover {
+        background-color: wheat;
+        color: blue;
+      }
+
+      a:active {
+        background-color: wheat;
+        color: darkblue;
+      }
+
+      a:focus {
+        outline: 2px dashed wheat; /* Adding focus outline for accessibility */
+        outline-offset: 2px;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        text-align: center;
+      }
+      .converter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+      select,
+      input,
+      button {
+        padding: 10px;
+        font-size: 16px;
+      }
+      .result {
+        margin-top: 20px;
+      }
+      #color-preview {
+        margin-top: 10px;
+        width: 100px;
+        height: 100px;
+        border: 1px solid #000;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Color Converter</h1>
+
+    <a href="/index.html" style="display: inline-block">Index</a>
+    <a href="/04-css-basics/colors.html" style="display: inline-block;">Colors</a>
+
+    <div class="converter">
+      <select id="from-type">
+        <option value="rgb">RGB</option>
+        <option value="hex">HEX</option>
+        <option value="hsl">HSL</option>
+      </select>
+      <input type="text" id="input-value" placeholder="Enter color value" />
+      <button onclick="convertColor()">Convert</button>
+    </div>
+    <div class="result">
+      <h3>Resulting Color Formats:</h3>
+      <p><strong>RGB:</strong> <span id="rgb-output">N/A</span></p>
+      <p><strong>HEX:</strong> <span id="hex-output">N/A</span></p>
+      <p><strong>HSL:</strong> <span id="hsl-output">N/A</span></p>
+    </div>
+    <div id="color-preview"></div>
+
+    <h2 style="color: #8e44ad">Letters in HEX Color Codes:</h2>
+    <p>
+      In a HEX color code (e.g., <b>#RRGGBB</b>), the letters used are
+      <b>A, B, C, D, E</b>, and <b>F</b>. These letters represent values in
+      hexadecimal, a base-16 numbering system that includes both numbers (0–9)
+      and letters (A–F).
+    </p>
+
+    <h3 style="color: #3498db">Value Mapping:</h3>
+    <ul>
+      <li><b>A</b> = Decimal 10</li>
+      <li><b>B</b> = Decimal 11</li>
+      <li><b>C</b> = Decimal 12</li>
+      <li><b>D</b> = Decimal 13</li>
+      <li><b>E</b> = Decimal 14</li>
+      <li><b>F</b> = Decimal 15</li>
+    </ul>
+    <p>
+      HEX combines these with numbers to represent a range from
+      <span style="color: #000000">00</span> (0 in decimal) to
+      <span style="color: #ffffff">FF</span> (255 in decimal) for each color
+      channel (Red, Green, and Blue).
+    </p>
+
+    <h3 style="color: #1abc9c">HEX to RGB Conversion:</h3>
+    <p>
+      A HEX color code is structured as <b>#RRGGBB</b>. Each pair represents the
+      intensity of Red, Green, or Blue (ranging from 0 to 255 in decimal).
+    </p>
+    <p>To convert:</p>
+    <ol>
+      <li>Split the HEX code into <b>RR</b>, <b>GG</b>, and <b>BB</b>.</li>
+      <li>Convert each pair from hexadecimal to decimal.</li>
+    </ol>
+    <p><b>Example Conversion:</b></p>
+    <p>HEX: <span style="color: #34a1f2">#34A1F2</span></p>
+    <ul>
+      <li><b>RR</b> = 34 → (3 × 16) + 4 = 52 (Red = 52)</li>
+      <li><b>GG</b> = A1 → (10 × 16) + 1 = 161 (Green = 161)</li>
+      <li><b>BB</b> = F2 → (15 × 16) + 2 = 242 (Blue = 242)</li>
+    </ul>
+    <p>
+      Resulting RGB:
+      <span style="color: rgb(52, 161, 242)">rgb(52, 161, 242)</span>
+    </p>
+
+    <h3 style="color: #e67e22">RGB to HEX Conversion:</h3>
+    <p>
+      An RGB value looks like <b>rgb(r, g, b)</b>, where each channel ranges
+      from 0 to 255.
+    </p>
+    <p>To convert:</p>
+    <ol>
+      <li>Divide each channel by 16 to find the first HEX digit (quotient).</li>
+      <li>Use the remainder for the second HEX digit.</li>
+    </ol>
+    <p><b>Example Conversion:</b></p>
+    <p>RGB: <span style="color: rgb(244, 164, 96)">rgb(244, 164, 96)</span></p>
+    <ul>
+      <li>Red: 244 → 244 ÷ 16 = 15 (<b>F</b>) and remainder 4 → <b>F4</b></li>
+      <li>Green: 164 → 164 ÷ 16 = 10 (<b>A</b>) and remainder 4 → <b>A4</b></li>
+      <li>Blue: 96 → 96 ÷ 16 = 6 and remainder 0 → <b>60</b></li>
+    </ul>
+    <p>Resulting HEX: <span style="color: #f4a460">#F4A460</span></p>
+
+    <script src="/js/hex-converter.js"></script>
+  </body>
+</html>
