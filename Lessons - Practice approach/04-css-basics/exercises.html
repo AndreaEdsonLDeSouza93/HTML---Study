@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exercises</title>
+  </head>
+
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    table thead,
+    table tfoot {
+      background-color: hsl(219, 98%, 20%);
+      color: white; /* Ensure high contrast */
+      font-weight: bold;
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: #eef7ff;
+    }
+
+    tr {
+      border-bottom: 2px solid #c4dcf3;
+    }
+
+    thead tr {
+      border-top: 2px solid #c4dcf3;
+    }
+
+    td,
+    th {
+      padding: 1em;
+      border: none;
+    }
+
+    .box {
+        width: 300px;
+        height: 300px;
+        background-color: tomato;
+        border-radius: 1em;
+        box-shadow: 10px 10px lightgray;
+    }
+
+  </style>
+
+  <body>
+    <h1>Exercises</h1>
+
+    <a href="/index.html" style="display: block">Index</a>
+
+    <ul style="text-decoration: none">
+      <li>
+        1. Create a table as shown below. Use pseudo-class selectors to
+        highlight the odd rows.
+      </li>
+      <li>Background color of the heading cells: #427fef</li>
+      <li>Background color of odd rows: #eef7ff</li>
+      <li>Border color: #c4dcf3</li>
+    </ul>
+
+    <table>
+      <thead>
+        <tr>
+          <td>Country</td>
+          <td>OrderID</td>
+          <td>Order Amount</td>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>USA</td>
+          <td>1000</td>
+          <td>$1,300</td>
+        </tr>
+        <tr>
+          <td>USA</td>
+          <td>1001</td>
+          <td>$700</td>
+        </tr>
+        <tr>
+          <td>CA</td>
+          <td>1002</td>
+          <td>$2,000</td>
+        </tr>
+        <tr>
+          <td>CA</td>
+          <td>1003</td>
+          <td>$1,000</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2">Total</td>
+          <td>$5,000</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <h2>Create a box with a simple shadow</h2>
+
+    <div class="box">
+
+    </div>
+  </body>
+</html>
