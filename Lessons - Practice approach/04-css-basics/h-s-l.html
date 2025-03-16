@@ -1,41 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>h-s-l</title>
 
     <style>
-        .color {
-            width: 100%;
-            height: 150px;
-            background-color: hsla(134, 79%, 34%, 0.664);
-        }
+      .color {
+        width: 100%;
+        height: 150px;
 
-        img {
-            width: 300px;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 150px;
-        }
+        /*
+        h: choose your color
+        s: saturation of that color
+        l: ligthness
+        a: ?
+        */
+
+        background-color: hsla(134, 79%, 34%, 0.664);
+        border: 2px solid black;
+        border-radius: 5px;
+      }
+
+      img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 150px;
+      }
+
+      .container {
+        text-align: center;
+      }
+
+      a {
+        background-color: navy;
+        color: aliceblue;
+        border-radius: 1em;
+        padding: 2em;
+        text-decoration-line: none;
+        display: inline-block;
+        width: fit-content;
+        margin: 10px auto;
+      }
+
+      a:hover {
+        background-color: dodgerblue;
+        color: bisque;
+      }
     </style>
-</head>
-<body>
-    <h1>h-s-l</h1>
+  </head>
+  <body>
+    <div class="container">
+      <h1>h-s-l</h1>
 
-    <a href="/index.html" style="display: block;">Index</a>
+      <a href="/index.html">Index</a>
+      <a href="/04-css-basics/h-s-l-color-simulator.html">Color simulator</a>
 
-    <div class="color"></div>
+      <div class="color" id="color"></div>
 
-    <h2>Hue</h2>
+      <div class="inputs">
+        <label>
+          Hue (H):
+          <input type="range" id="hue" min="0" max="360" value="60" />
+        </label>
 
-    <div class="color-wheel-container">
-        <img src="/Multimedia/color-wheel.jpeg" alt="color-wheel">
+        <label>
+          Saturation (S):
+          <input type="range" id="saturation" min="0" max="100" value="60" />
+        </label>
+
+        <label>
+          Ligthness (L):
+          <input type="range" id="lightness" min="0" max="100" value="60" />
+        </label>
+
+        <label>
+          Alpha (A):
+          <input type="range" id="alpha" min="0" max="1" step="0.05" value="0.5"/>
+        </label>
+      </div>
+
+      <h2>Hue</h2>
+
+      <div class="color-wheel-container">
+        <img src="/Multimedia/color-wheel.jpeg" alt="color-wheel" />
+      </div>
+
+      <h2>Saturation</h2>
+
+      <div class="row" style="color: #ffffff; padding: 5px">
+        <div class="row-item" style="background-color: hsl(0, 0%, 50%)">0%</div>
+        <div class="row-item" style="background-color: hsl(0, 20%, 50%)">
+          20%
+        </div>
+        <div class="row-item" style="background-color: hsl(0, 40%, 50%)">
+          40%
+        </div>
+        <div class="row-item" style="background-color: hsl(0, 60%, 50%)">
+          60%
+        </div>
+        <div class="row-item" style="background-color: hsl(0, 80%, 50%)">
+          80%
+        </div>
+        <div class="row-item" style="background-color: hsl(0, 100%, 50%)">
+          100%
+        </div>
+      </div>
+
+      <h2>Lightness</h2>
+
+      <div class="row" style="color: #ffffff; padding: 5px">
+        <div class="row-item" style="background-color: hsl(0, 100%, 0%)">
+          0%
+        </div>
+        <div class="row-item" style="background-color: hsl(0, 100%, 20%)">
+          20%
+        </div>
+        <div class="row-item" style="background-color: hsl(0, 100%, 40%)">
+          40%
+        </div>
+        <div class="row-item" style="background-color: hsl(0, 100%, 60%)">
+          60%
+        </div>
+        <div class="row-item" style="background-color: hsl(0, 100%, 80%)">
+          80%
+        </div>
+        <div class="row-item" style="background-color: hsl(0, 100%, 100%)">
+          100%
+        </div>
+      </div>
     </div>
 
-    <h2>Saturation</h2>
+    <script>
+      // Selecting elements (ensure all IDs match)
+      const color = document.getElementById("color");
+      const hue = document.getElementById("hue");
+      const saturation = document.getElementById("saturation");
+      const lightness = document.getElementById("lightness");
+      const alpha = document.getElementById("alpha");
 
-    <h2>Lightness</h2>
+      // Function to update background color
+      function updateColor() {
+        color.style.backgroundColor = `hsla(${hue.value}, ${saturation.value}%, ${lightness.value}%, ${alpha.value})`;
+      }
 
-</body>
+      // Add event listeners to update color dynamically
+      hue.addEventListener("input", updateColor);
+      saturation.addEventListener("input", updateColor);
+      lightness.addEventListener("input", updateColor);
+      alpha.addEventListener("input", updateColor);
+
+      // Initialize color on page load
+      updateColor();
+    </script>
+  </body>
 </html>
