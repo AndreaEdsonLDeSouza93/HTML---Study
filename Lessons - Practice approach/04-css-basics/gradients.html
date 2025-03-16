@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gradients</title>
+
+    <style>
+      .container {
+        text-align: center;
+        padding: 5px;
+      }
+
+      .box {
+        width: 200px;
+        height: 200px;
+        margin: 10px auto;
+      }
+
+      .box.one {
+        background-image: linear-gradient(navy, dodgerblue);
+      }
+
+      .box.two {
+        background: linear-gradient(black, yellow);
+      }
+
+      .box.three {
+        background: linear-gradient(to right, black, yellow);
+      }
+
+      .box.four {
+        background: linear-gradient(to bottom right, black, yellow);
+      }
+
+      /*
+            0
+      270 __|__ 90
+            |
+           180
+      */
+      .box.five {
+        background: linear-gradient(45deg, black, yellow);
+      }
+
+      .box.six {
+        background: linear-gradient(45deg, black, yellow 25%);
+      }
+
+      .box.seven {
+        background: linear-gradient(black, orange, yellow);
+      }
+
+      .box.eight {
+        /* if the browser doesn't support the linear/radial gradient, we will use a plain color as fallback (background = rgb) */
+        background: rgb(63, 94, 251);
+        background: radial-gradient(
+          circle,
+          rgba(63, 94, 251, 1) 10%,
+          rgba(252, 70, 107, 1) 62%,
+          rgba(178, 79, 163, 1) 69%
+        );
+      }
+
+      .box.nine {
+        background: radial-gradient(black, yellow);
+      }
+
+      .box.ten {
+        width: 400px;
+        background: radial-gradient(black, yellow);
+      }
+
+      .box.eleven {
+        width: 400px;
+        background: radial-gradient(circle, black, yellow);
+      }
+
+      .box.twelve {
+        width: 400px;
+        background: radial-gradient(circle at top left, black, yellow);
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>gradients</h1>
+
+      <a href="/index.html" style="display: block">Index</a>
+
+      <a href="https://cssgradient.io/" target="_blank">Gradient generator</a>
+
+      <h2>Linear gradient</h2>
+      <div class="box one" style="display: block"></div>
+      <div class="box two" style="display: block"></div>
+      <div class="box three" style="display: block"></div>
+      <div class="box four" style="display: block"></div>
+      <div class="box five" style="display: block"></div>
+      <div class="box six" style="display: block"></div>
+      <div class="box seven" style="display: block"></div>
+
+      <h2>Css gradient website</h2>
+      <div class="box eight" style="display: block"></div>
+
+      <h2>Radial gradient</h2>
+      <div class="box nine" style="display: block"></div>
+      <div class="box ten" style="display: block"></div>
+      <div class="box eleven" style="display: block"></div>
+      <div class="box twelve" style="display: block"></div>
+
+
+    </div>
+  </body>
+</html>

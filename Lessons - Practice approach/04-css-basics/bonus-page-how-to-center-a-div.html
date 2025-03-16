@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Centering Examples</title>
+    <style>
+      /* Styles for headings */
+      h2 {
+        text-align: center;
+        margin: 20px 0;
+        font-family: Arial, sans-serif;
+        color: #333;
+      }
+      /* Flexbox Centering */
+      .flexbox-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+      }
+      .flexbox-box {
+        width: 150px;
+        height: 150px;
+        background-color: steelblue;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Grid Centering */
+      .grid-container {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f8f9fa;
+      }
+      .grid-box {
+        width: 150px;
+        height: 150px;
+        background-color: tomato;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Absolute Positioning */
+      .absolute-container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background-color: #eef2f3;
+      }
+      .absolute-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 150px;
+        height: 150px;
+        background-color: lightgreen;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Margin Auto */
+      .margin-container {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        background-color: #e8f5e9;
+        display: block;
+      }
+      .margin-box {
+        width: 150px;
+        height: 150px;
+        margin: auto;
+        background-color: skyblue;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Responsive Flexbox */
+      .responsive-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 1rem;
+        margin: 0;
+        background-color: #fcf7f8;
+      }
+      .responsive-box {
+        width: 100%;
+        max-width: 300px;
+        height: 200px;
+        background-color: lightcoral;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center; font-family: Arial, sans-serif;">Centering Examples</h1>
+
+    <a href="/index.html" style="display: block; margin: 10px 0;">Index</a>
+
+    <!-- Example 1: Flexbox -->
+    <h2>1. Flexbox Centering</h2>
+    <div class="flexbox-container">
+      <div class="flexbox-box"></div>
+    </div>
+
+    <!-- Example 2: CSS Grid -->
+    <h2>2. Grid Centering</h2>
+    <div class="grid-container">
+      <div class="grid-box"></div>
+    </div>
+
+    <!-- Example 3: Absolute Positioning -->
+    <h2>3. Absolute Centering</h2>
+    <div class="absolute-container">
+      <div class="absolute-box"></div>
+    </div>
+
+    <!-- Example 4: Margin Auto -->
+    <h2>4. Margin Auto (Horizontal Only)</h2>
+    <div class="margin-container">
+      <div class="margin-box"></div>
+    </div>
+
+    <!-- Example 5: Responsive Flexbox -->
+    <h2>5. Responsive Flexbox</h2>
+    <div class="responsive-container">
+      <div class="responsive-box"></div>
+    </div>
+  </body>
+</html>

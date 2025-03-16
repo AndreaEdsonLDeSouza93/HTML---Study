@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>border</title>
+
+    <style>
+      /* 
+            trbl : top right bottom left - general rule
+            tr tl br bl : top-right, top-left, bottom-right, bottom-left
+         */
+
+      body, div {
+        margin: 2em;
+      }
+
+      .box {
+        width: 300px;
+        height: 300px;
+        margin: 10px;
+        background-color: aquamarine;
+        border-color: black red orange yellow;
+        border-width: 20px 15px 10px 5px;
+        border-style: groove dashed dotted double;
+        border-radius: 5px;
+      }
+
+      #square {
+        width: 100px;
+        height: 100px;
+        background: red;
+      }
+
+      #rectangle {
+        width: 200px;
+        height: 100px;
+        background: red;
+      }
+
+      #circle {
+        width: 100px;
+        height: 100px;
+        background: red;
+        border-radius: 50%;
+      }
+
+      #oval {
+        width: 200px;
+        height: 100px;
+        background: red;
+        border-radius: 100px / 50px;
+      }
+
+      #triangle-up {
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 100px solid red;
+      }
+
+      #triangle-down {
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-top: 100px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Borders</h1>
+
+    <a href="/index.html">Index</a>
+
+    <div class="box"></div>
+
+    <h2>CSS shapes</h2>
+
+    <a href="https://css-tricks.com/the-shapes-of-css/" target="_blank"
+      >The shapes of css</a
+    >
+
+    <h2>square</h2>
+    <div id="square"></div>
+    <h2>rectangle</h2>
+    <div id="rectangle"></div>
+    <h2>circle</h2>
+    <div id="circle"></div>
+    <h2>oval</h2>
+    <div id="oval"></div>
+    <h2>triangle-up</h2>
+    <div id="triangle-up"></div>
+    <h2>triangle-down</h2>
+    <div id="triangle-down"></div>
+
+    <h2>etc..</h2>
+  </body>
+</html>

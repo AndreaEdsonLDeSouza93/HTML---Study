@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shadows</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: navy;
+
+            /*
+                first-value
+                . 10px (to right)
+                . -10px (to left)
+                _________________
+                second-value
+                . 10px (down)
+                . .10px (up)
+            */
+            box-shadow: 10px 10px lightcoral;
+        }
+
+        .square {
+            margin: 20px 0;
+            width: 200px;
+            height: 200px;
+            background-color: dodgerblue;
+
+            /*
+                _________________
+                third-value
+                . refers to the shadow thickness
+            */
+            box-shadow: 10px 10px 10px red;
+        }
+
+        .circle {
+            margin: 20px 0;
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+            background-color: dodgerblue;
+            /* the shadow is touching all the sides of the element */
+            box-shadow: 0 0 15px red;
+        }
+
+        .heading-container {
+            background-color: burlywood;
+            padding: 10px;
+            border-radius: 5px;
+            border: 3px double black;
+        }
+
+        .title-with-shadow-effect {
+            color: white;
+            text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+        }
+
+    </style>
+</head>
+<body>
+    <h1>shadows</h1>
+
+    <a href="/index.html" style="display: block; margin: 10px 3px;">Index</a>
+
+    <div class="box"></div>
+    <div class="square"></div>
+    <div class="circle"></div>
+    <div class="heading-container">
+        <h2 class="title-with-shadow-effect">Hey, Where's my shadow?</h2>
+    </div>
+</body>
+</html>

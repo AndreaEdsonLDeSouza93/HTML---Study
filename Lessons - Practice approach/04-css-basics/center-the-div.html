@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>center-a-div</title>
+
+    <style>
+      /* first box */
+      #container-1 {
+        text-align: center;
+      }
+      #box-1 {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background: lightblue;
+      }
+
+      /* second box */
+      #container-2 {
+        width: 100%;
+        height: 100vh;
+        display: block;
+      }
+      #box-2 {
+        width: 100px;
+        height: 100px;
+        background: lightcoral;
+        margin: auto;
+      }
+
+      /* third box */
+
+      #container-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  #box-3 {
+    width: 100px;
+    height: 100px;
+    background: lightgreen;
+  }
+
+  /* fourth box */
+
+  #container-4 {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+  }
+  #box-4 {
+    width: 100px;
+    height: 100px;
+    background: lightgoldenrodyellow;
+  }
+
+  /*fifth element*/
+
+  #container-5 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+  }
+  #box-5 {
+    width: 100px;
+    height: 100px;
+    background: lightpink;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* sixth element*/
+
+  .container-6 {
+    display: table;
+    width: 100%;
+    height: 100vh;
+  }
+  .box-6 {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    background: lightseagreen;
+    margin: auto;
+  }
+    </style>
+  </head>
+  <body>
+    <h1>how to center a div</h1>
+
+    <a href="/index.html" style="display: block">Index</a>
+
+    <h2>Using text-align (for inline-bloc)</h2>
+    <p>Horizontal centering only</p>
+
+    <div id="container-1">
+      <div id="box-1"></div>
+    </div>
+
+    <h2>Using margin auto</h2>
+    <p>Works for block elements in a container</p>
+    <div id="container-2">
+        <div id="box-2"></div>
+    </div>
+
+    <h2>Using Flexbox</h2>
+    <p>Simple and centers both horizontally and vertically</p>
+
+    <div id="container-3">
+        <div id="box-3"></div>
+    </div>
+
+    <h2>Using Grid</h2>
+    <p>Effortless centering with CSS Grid</p>
+
+    <div id="container-4">
+        <div id="box-4"></div>
+    </div>
+
+    <h2>Using position:absolute and transform</h2>
+    <p>Centers anywhere on the screen/container</p>
+
+    <div id="container-5">
+        <div id="box-5"></div>
+    </div>
+
+    <h2>Using table properties</h2>
+    <p>An old-school method that still works</p>
+    <div id="container-6">
+        <div id="box-6"></div>
+    </div>
+
+    <a href="/04-css-basics/bonus-page-how-to-center-a-div.html" style="display: block;">bonus page</a>
+  </body>
+</html>
