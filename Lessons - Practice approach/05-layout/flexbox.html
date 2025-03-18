@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Playground</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { display: flex; border: 2px solid black; height: 300px; padding: 10px; overflow: auto; }
+        .box { display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; margin: 5px; border: 2px solid black; cursor: pointer; }
+        .controls { margin-bottom: 20px; }
+        .code-mirror { background: #f4f4f4; padding: 10px; font-family: monospace; white-space: pre-wrap; }
+        .selected { border: 3px dashed red; }
+        .color-picker { display: flex; gap: 10px; align-items: center; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Flexbox Playground</h1>
+    
+    <!-- Controls -->
+    <div class="controls">
+        <label>Flex Direction:</label>
+        <select id="flexDirection">
+            <option value="row">Row</option>
+            <option value="column">Column</option>
+        </select>
+        
+        <label>Justify Content:</label>
+        <select id="justifyContent">
+            <option value="flex-start">Flex Start</option>
+            <option value="center">Center</option>
+            <option value="flex-end">Flex End</option>
+            <option value="space-between">Space Between</option>
+            <option value="space-around">Space Around</option>
+            <option value="space-evenly">Space Evenly</option>
+        </select>
+        
+        <label>Align Items:</label>
+        <select id="alignItems">
+            <option value="flex-start">Flex Start</option>
+            <option value="center">Center</option>
+            <option value="flex-end">Flex End</option>
+            <option value="stretch">Stretch</option>
+            <option value="baseline">Baseline</option>
+        </select>
+        
+        <label>Align Content:</label>
+        <select id="alignContent">
+            <option value="flex-start">Flex Start</option>
+            <option value="center">Center</option>
+            <option value="flex-end">Flex End</option>
+            <option value="space-between">Space Between</option>
+            <option value="space-around">Space Around</option>
+            <option value="stretch">Stretch</option>
+        </select>
+        
+        <label>Flex Wrap:</label>
+        <select id="flexWrap">
+            <option value="nowrap">No Wrap</option>
+            <option value="wrap">Wrap</option>
+            <option value="wrap-reverse">Wrap Reverse</option>
+        </select>
+    </div>
+    
+    <!-- Buttons for Box Control -->
+    <button onclick="addBox()">Add Box</button>
+    <button onclick="removeBox()">Remove Box</button>
+    
+    <!-- Color Picker -->
+    <div class="color-picker">
+        <label for="boxColor">Change Box Color:</label>
+        <input type="color" id="boxColor" value="#ffffff">
+    </div>
+    
+    <!-- Flexbox Container -->
+    <div class="container" id="flexContainer">
+        <div class="box" onclick="selectBox(this)">A</div>
+        <div class="box" onclick="selectBox(this)">B</div>
+        <div class="box" onclick="selectBox(this)">C</div>
+    </div>
+    
+    <!-- Code Output -->
+    <h2>Generated CSS:</h2>
+    <pre class="code-mirror" id="cssOutput"></pre>
+    
+    <script>
+        let selectedBox = null;
+
+        // Update container styles dynamically
+        function updateFlexbox() {
+            const container = document.getElementById("flexContainer");
+            container.style.flexDirection = document.getElementById("flexDirection").value;
+            container.style.justifyContent = document.getElementById("justifyContent").value;
+            container.style.alignItems = document.getElementById("alignItems").value;
+            container.style.alignContent = document.getElementById("alignContent").value;
+            container.style.flexWrap = document.getElementById("flexWrap").value;
+
+            document.getElementById("cssOutput").textContent = `
+.container {
+    display: flex;
+    flex-direction: ${container.style.flexDirection};
+    justify-content: ${container.style.justifyContent};
+    align-items: ${container.style.alignItems};
+    align-content: ${container.style.alignContent};
+    flex-wrap: ${container.style.flexWrap};
+}`;
+        }
+        
+        // Add new box
+        function addBox() {
+            const box = document.createElement("div");
+            box.className = "box";
+            box.textContent = String.fromCharCode(65 + document.querySelectorAll(".box").length);
+            box.setAttribute("onclick", "selectBox(this)");
+            document.getElementById("flexContainer").appendChild(box);
+            updateFlexbox();
+        }
+
+        // Remove last box
+        function removeBox() {
+            const boxes = document.querySelectorAll(".box");
+            if (boxes.length > 1) {
+                boxes[boxes.length - 1].remove();
+                updateFlexbox();
+            }
+        }
+
+        // Select a specific box
+        function selectBox(box) {
+            if (selectedBox) selectedBox.classList.remove("selected");
+            selectedBox = box;
+            box.classList.add("selected");
+        }
+
+        // Change color of the selected box
+        document.getElementById("boxColor").addEventListener("input", (event) => {
+            if (selectedBox) {
+                selectedBox.style.backgroundColor = event.target.value;
+            }
+        });
+
+        // Update on control change
+        document.querySelectorAll("select").forEach(select => {
+            select.addEventListener("change", updateFlexbox);
+        });
+    </script>
+</body>
+</html>
