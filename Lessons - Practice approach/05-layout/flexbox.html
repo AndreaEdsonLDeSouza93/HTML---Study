@@ -1,102 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flexbox Playground</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .container { display: flex; border: 2px solid black; height: 300px; padding: 10px; overflow: auto; }
-        .box { display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; margin: 5px; border: 2px solid black; cursor: pointer; }
-        .controls { margin-bottom: 20px; }
-        .code-mirror { background: #f4f4f4; padding: 10px; font-family: monospace; white-space: pre-wrap; }
-        .selected { border: 3px dashed red; }
-        .color-picker { display: flex; gap: 10px; align-items: center; margin-top: 10px; }
+      /* General body styling */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: #f8f8f8;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .controls label {
+        font-size: 14px;
+        margin-right: 10px;
+      }
+      .controls select,
+      .controls input,
+      button {
+        padding: 5px;
+        margin-right: 10px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      button {
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      .container {
+        display: flex;
+        border: 2px solid #333;
+        height: 300px;
+        width: 100%;
+        padding: 10px;
+        overflow: auto;
+        background-color: #fafafa;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        box-sizing: border-box;
+        max-width: 100%;
+      }
+      .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+        border: 2px solid black;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background-color: white;
+      }
+      .box:hover {
+        transform: scale(1.1);
+      }
+      .selected {
+        border: 3px dashed red;
+      }
+      .code-mirror {
+        background: #f4f4f4;
+        padding: 10px;
+        font-family: monospace;
+        white-space: pre-wrap;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .color-picker {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-top: 10px;
+      }
+
+      .accordion {
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .accordion-header {
+        width: 100%;
+        text-align: left;
+        padding: 10px;
+        background: #007bff;
+        color: white;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background 0.3s;
+      }
+      .accordion-header:hover {
+        background: #0056b3;
+      }
+      .accordion-body {
+        padding: 10px;
+        background: #f9f9f9;
+        display: none;
+      }
+      .accordion-body p {
+        margin: 0 0 10px;
+        font-size: 14px;
+      }
+      .accordion-body ul {
+        padding-left: 20px;
+      }
+      .accordion-body ul li {
+        margin-bottom: 5px;
+        font-size: 14px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Flexbox Playground</h1>
-    
-    <!-- Controls -->
     <div class="controls">
-        <label>Flex Direction:</label>
-        <select id="flexDirection">
-            <option value="row">Row</option>
-            <option value="column">Column</option>
-        </select>
-        
-        <label>Justify Content:</label>
-        <select id="justifyContent">
-            <option value="flex-start">Flex Start</option>
-            <option value="center">Center</option>
-            <option value="flex-end">Flex End</option>
-            <option value="space-between">Space Between</option>
-            <option value="space-around">Space Around</option>
-            <option value="space-evenly">Space Evenly</option>
-        </select>
-        
-        <label>Align Items:</label>
-        <select id="alignItems">
-            <option value="flex-start">Flex Start</option>
-            <option value="center">Center</option>
-            <option value="flex-end">Flex End</option>
-            <option value="stretch">Stretch</option>
-            <option value="baseline">Baseline</option>
-        </select>
-        
-        <label>Align Content:</label>
-        <select id="alignContent">
-            <option value="flex-start">Flex Start</option>
-            <option value="center">Center</option>
-            <option value="flex-end">Flex End</option>
-            <option value="space-between">Space Between</option>
-            <option value="space-around">Space Around</option>
-            <option value="stretch">Stretch</option>
-        </select>
-        
-        <label>Flex Wrap:</label>
-        <select id="flexWrap">
-            <option value="nowrap">No Wrap</option>
-            <option value="wrap">Wrap</option>
-            <option value="wrap-reverse">Wrap Reverse</option>
-        </select>
+      <label>Flex Direction:</label>
+      <select id="flexDirection">
+        <option value="row">Row</option>
+        <option value="column">Column</option>
+      </select>
+      <label>Justify Content:</label>
+      <select id="justifyContent">
+        <option value="flex-start">Flex Start</option>
+        <option value="center">Center</option>
+        <option value="flex-end">Flex End</option>
+        <option value="space-between">Space Between</option>
+        <option value="space-around">Space Around</option>
+        <option value="space-evenly">Space Evenly</option>
+      </select>
+      <label>Align Items:</label>
+      <select id="alignItems">
+        <option value="flex-start">Flex Start</option>
+        <option value="center">Center</option>
+        <option value="flex-end">Flex End</option>
+        <option value="stretch">Stretch</option>
+        <option value="baseline">Baseline</option>
+      </select>
+      <label>Align Content:</label>
+      <select id="alignContent">
+        <option value="flex-start">Flex Start</option>
+        <option value="center">Center</option>
+        <option value="flex-end">Flex End</option>
+        <option value="space-between">Space Between</option>
+        <option value="space-around">Space Around</option>
+        <option value="stretch">Stretch</option>
+      </select>
+      <label>Flex Wrap:</label>
+      <select id="flexWrap">
+        <option value="nowrap">No Wrap</option>
+        <option value="wrap">Wrap</option>
+        <option value="wrap-reverse">Wrap Reverse</option>
+      </select>
+      <label>Container Width:</label>
+      <input type="range" id="containerWidth" min="200" max="800" value="300" />
+      <label>Container Height:</label>
+      <input
+        type="range"
+        id="containerHeight"
+        min="200"
+        max="800"
+        value="300"
+      />
+      <label>Gap:</label>
+      <input type="range" id="gapControl" min="0" max="50" value="10" />
     </div>
-    
-    <!-- Buttons for Box Control -->
     <button onclick="addBox()">Add Box</button>
     <button onclick="removeBox()">Remove Box</button>
-    
-    <!-- Color Picker -->
     <div class="color-picker">
-        <label for="boxColor">Change Box Color:</label>
-        <input type="color" id="boxColor" value="#ffffff">
+      <label for="boxColor">Change Box Color:</label>
+      <input type="color" id="boxColor" value="#ffffff" />
     </div>
-    
-    <!-- Flexbox Container -->
     <div class="container" id="flexContainer">
-        <div class="box" onclick="selectBox(this)">A</div>
-        <div class="box" onclick="selectBox(this)">B</div>
-        <div class="box" onclick="selectBox(this)">C</div>
+      <div class="box" onclick="selectBox(this)">A</div>
+      <div class="box" onclick="selectBox(this)">B</div>
+      <div class="box" onclick="selectBox(this)">C</div>
     </div>
-    
-    <!-- Code Output -->
     <h2>Generated CSS:</h2>
     <pre class="code-mirror" id="cssOutput"></pre>
-    
+
+    <hr />
+    <h2>Flexbox Documentation</h2>
+    <div class="accordion">
+      <button class="accordion-header">1. Flex Direction</button>
+      <div class="accordion-body">
+        <p>
+          The <code>flex-direction</code> property defines the direction of the
+          main axis.
+        </p>
+        <ul>
+          <li>
+            <strong>row:</strong> Default. Items are placed in a row, from left
+            to right.
+          </li>
+          <li>
+            <strong>row-reverse:</strong> Items are placed in a row, from right
+            to left.
+          </li>
+          <li>
+            <strong>column:</strong> Items are placed in a column, from top to
+            bottom.
+          </li>
+          <li>
+            <strong>column-reverse:</strong> Items are placed in a column, from
+            bottom to top.
+          </li>
+        </ul>
+        <p>
+          <strong>Usage Tip:</strong> "row" is most common for horizontal
+          layouts, while "column" works well for vertical stacking.
+        </p>
+      </div>
+
+      <button class="accordion-header">2. Justify Content</button>
+      <div class="accordion-body">
+        <p>
+          The <code>justify-content</code> property aligns items along the main
+          axis.
+        </p>
+        <ul>
+          <li>
+            <strong>flex-start:</strong> Items are packed at the start of the
+            container.
+          </li>
+          <li>
+            <strong>center:</strong> Items are centered along the main axis.
+          </li>
+          <li>
+            <strong>flex-end:</strong> Items are packed at the end of the
+            container.
+          </li>
+          <li>
+            <strong>space-between:</strong> Equal space between items; no space
+            at the ends.
+          </li>
+          <li>
+            <strong>space-around:</strong> Equal space around items (half-space
+            at the ends).
+          </li>
+          <li>
+            <strong>space-evenly:</strong> Equal space between and around items.
+          </li>
+        </ul>
+        <p>
+          <strong>Usage Tip:</strong> "space-between" and "center" are great for
+          aligning navigation menus or buttons.
+        </p>
+      </div>
+
+      <button class="accordion-header">3. Align Items</button>
+      <div class="accordion-body">
+        <p>
+          The <code>align-items</code> property aligns items along the cross
+          axis.
+        </p>
+        <ul>
+          <li>
+            <strong>stretch:</strong> Default. Items stretch to fill the
+            container.
+          </li>
+          <li>
+            <strong>flex-start:</strong> Items align at the start of the cross
+            axis.
+          </li>
+          <li>
+            <strong>flex-end:</strong> Items align at the end of the cross axis.
+          </li>
+          <li>
+            <strong>center:</strong> Items align in the center of the cross
+            axis.
+          </li>
+          <li>
+            <strong>baseline:</strong> Items align based on their baselines.
+          </li>
+        </ul>
+        <p>
+          <strong>Usage Tip:</strong> Use "center" for vertically centering
+          items in a horizontal row.
+        </p>
+      </div>
+
+      <button class="accordion-header">4. Flex Wrap</button>
+      <div class="accordion-body">
+        <p>
+          The <code>flex-wrap</code> property controls how items wrap onto
+          multiple lines.
+        </p>
+        <ul>
+          <li>
+            <strong>nowrap:</strong> Default. All items fit on one line, even if
+            they overflow.
+          </li>
+          <li>
+            <strong>wrap:</strong> Items wrap onto multiple lines, from top to
+            bottom.
+          </li>
+          <li>
+            <strong>wrap-reverse:</strong> Items wrap onto multiple lines, from
+            bottom to top.
+          </li>
+        </ul>
+        <p>
+          <strong>Usage Tip:</strong> Use "wrap" for responsive grids where
+          items stack as the container shrinks.
+        </p>
+      </div>
+
+      <button class="accordion-header">5. Align Content</button>
+      <div class="accordion-body">
+        <p>
+          The <code>align-content</code> property aligns rows of items when
+          there are multiple lines.
+        </p>
+        <ul>
+          <li>
+            <strong>flex-start:</strong> Rows are packed at the start of the
+            container.
+          </li>
+          <li><strong>center:</strong> Rows are centered in the container.</li>
+          <li>
+            <strong>flex-end:</strong> Rows are packed at the end of the
+            container.
+          </li>
+          <li>
+            <strong>space-between:</strong> Equal space between rows; no space
+            at the ends.
+          </li>
+          <li>
+            <strong>space-around:</strong> Equal space around rows (half-space
+            at the ends).
+          </li>
+          <li><strong>stretch:</strong> Rows stretch to fill the container.</li>
+        </ul>
+        <p>
+          <strong>Usage Tip:</strong> Use this property with "wrap" to control
+          spacing between rows.
+        </p>
+      </div>
+    </div>
+
     <script>
-        let selectedBox = null;
-
-        // Update container styles dynamically
-        function updateFlexbox() {
-            const container = document.getElementById("flexContainer");
-            container.style.flexDirection = document.getElementById("flexDirection").value;
-            container.style.justifyContent = document.getElementById("justifyContent").value;
-            container.style.alignItems = document.getElementById("alignItems").value;
-            container.style.alignContent = document.getElementById("alignContent").value;
-            container.style.flexWrap = document.getElementById("flexWrap").value;
-
-            document.getElementById("cssOutput").textContent = `
+      let selectedBox = null;
+      function updateFlexbox() {
+        const container = document.getElementById("flexContainer");
+        container.style.flexDirection =
+          document.getElementById("flexDirection").value;
+        container.style.justifyContent =
+          document.getElementById("justifyContent").value;
+        container.style.alignItems =
+          document.getElementById("alignItems").value;
+        container.style.alignContent =
+          document.getElementById("alignContent").value;
+        container.style.flexWrap = document.getElementById("flexWrap").value;
+        document.getElementById("cssOutput").textContent = `
 .container {
     display: flex;
     flex-direction: ${container.style.flexDirection};
@@ -105,45 +390,63 @@
     align-content: ${container.style.alignContent};
     flex-wrap: ${container.style.flexWrap};
 }`;
+      }
+      function addBox() {
+        const box = document.createElement("div");
+        box.className = "box";
+        box.textContent = String.fromCharCode(
+          65 + document.querySelectorAll(".box").length
+        );
+        box.setAttribute("onclick", "selectBox(this)");
+        document.getElementById("flexContainer").appendChild(box);
+        updateFlexbox();
+      }
+      function removeBox() {
+        const boxes = document.querySelectorAll(".box");
+        if (boxes.length > 1) {
+          boxes[boxes.length - 1].remove();
+          updateFlexbox();
         }
-        
-        // Add new box
-        function addBox() {
-            const box = document.createElement("div");
-            box.className = "box";
-            box.textContent = String.fromCharCode(65 + document.querySelectorAll(".box").length);
-            box.setAttribute("onclick", "selectBox(this)");
-            document.getElementById("flexContainer").appendChild(box);
-            updateFlexbox();
+      }
+      function selectBox(box) {
+        if (selectedBox) selectedBox.classList.remove("selected");
+        selectedBox = box;
+        box.classList.add("selected");
+      }
+      document.getElementById("boxColor").addEventListener("input", (event) => {
+        if (selectedBox) {
+          selectedBox.style.backgroundColor = event.target.value;
         }
-
-        // Remove last box
-        function removeBox() {
-            const boxes = document.querySelectorAll(".box");
-            if (boxes.length > 1) {
-                boxes[boxes.length - 1].remove();
-                updateFlexbox();
-            }
-        }
-
-        // Select a specific box
-        function selectBox(box) {
-            if (selectedBox) selectedBox.classList.remove("selected");
-            selectedBox = box;
-            box.classList.add("selected");
-        }
-
-        // Change color of the selected box
-        document.getElementById("boxColor").addEventListener("input", (event) => {
-            if (selectedBox) {
-                selectedBox.style.backgroundColor = event.target.value;
-            }
+      });
+      document.querySelectorAll("select").forEach((select) => {
+        select.addEventListener("change", updateFlexbox);
+      });
+      document
+        .getElementById("containerWidth")
+        .addEventListener("input", (e) => {
+          document.getElementById("flexContainer").style.width =
+            e.target.value + "px";
         });
-
-        // Update on control change
-        document.querySelectorAll("select").forEach(select => {
-            select.addEventListener("change", updateFlexbox);
+      document
+        .getElementById("containerHeight")
+        .addEventListener("input", (e) => {
+          document.getElementById("flexContainer").style.height =
+            e.target.value + "px";
         });
+      document.getElementById("gapControl").addEventListener("input", (e) => {
+        document.getElementById("flexContainer").style.gap =
+          e.target.value + "px";
+      });
+
+      //code to make the accordion menu functional
+      const accordionHeaders = document.querySelectorAll(".accordion-header");
+      accordionHeaders.forEach((header) => {
+        header.addEventListener("click", () => {
+          const body = header.nextElementSibling;
+          body.style.display =
+            body.style.display === "block" ? "none" : "block";
+        });
+      });
     </script>
-</body>
+  </body>
 </html>
