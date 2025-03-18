@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Measurement Units</title>
+
+    <style>
+        html {
+            /* Trick to make 1rem equal to 10px */
+            font-size: 62.5%; /* 62.5% of default 16px = 10px */
+        }
+
+        .container {
+            width: 80%; /* Relative to the viewport or parent element */
+            border: 1px solid black;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        .absolute-px {
+            width: 300px; /* Absolute - fixed size */
+            height: 150px;
+            background-color: lightblue;
+            margin-bottom: 10px;
+        }
+
+        .relative-percent {
+            width: 50%; /* Relative to parent container */
+            height: 50%;
+            background-color: lightcoral;
+        }
+
+        .relative-vw-vh {
+            width: 50vw; /* Relative to viewport width */
+            height: 20vh; /* Relative to viewport height */
+            background-color: lightgreen;
+            margin: 10px 0;
+        }
+
+        .relative-em {
+            font-size: 2em; /* Relative to parent font size */
+            background-color: lightyellow;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .relative-rem {
+            font-size: 1.5rem; /* Relative to root font size (html element) */
+            background-color: lightpink;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Measurement Units</h1>
+    <a href="/index.html" style="display: block;">Index</a>
+
+    <h2>Introduction</h2>
+    <p>In CSS, measurement units can be divided into two main categories: <strong>absolute</strong> and <strong>relative</strong>. Let's explore the different types with definitions, examples, and their use cases.</p>
+
+    <h2>Absolute Units</h2>
+    <p>Absolute units have a fixed value, unaffected by parent elements or the viewport. The most common absolute unit is <code>px</code>.</p>
+    <div class="container">
+        <div class="absolute-px">
+            <p>This box has a fixed width and height of 300px by 150px.</p>
+        </div>
+    </div>
+
+    <h3>Example</h3>
+    <code>width: 300px; height: 150px;</code>
+    <p>Use absolute units when you need an element to have a specific fixed size, regardless of the context.</p>
+
+    <h2>Relative Units</h2>
+    <h3>1. <code>%</code> - Percentage</h3>
+    <p>Percentage is relative to the size of the parent element.</p>
+    <div class="container">
+        <div class="relative-percent">
+            <p>This box takes up 50% of its parent’s width and height.</p>
+        </div>
+    </div>
+    <h3>Example</h3>
+    <code>width: 50%; height: 50%;</code>
+    <p>Use percentages when you want elements to be responsive to their container's size.</p>
+
+    <h3>2. <code>vw</code> and <code>vh</code> - Viewport Width/Height</h3>
+    <p>These units are relative to the size of the viewport (the visible part of the browser window).</p>
+    <div class="container">
+        <div class="relative-vw-vh">
+            <p>This box is 50% of the viewport width and 20% of the viewport height.</p>
+        </div>
+    </div>
+    <h3>Example</h3>
+    <code>width: 50vw; height: 20vh;</code>
+    <p>Use <code>vw</code> and <code>vh</code> for layouts that should adapt to the browser window size.</p>
+
+    <h3>3. <code>em</code> - Relative to Parent Font Size</h3>
+    <p>The unit <code>em</code> is calculated relative to the font size of the parent element.</p>
+    <div class="container">
+        <div class="relative-em">
+            <p>This text is 2 times the size of its parent’s font size.</p>
+        </div>
+    </div>
+    <h3>Example</h3>
+    <code>font-size: 2em;</code>
+    <p>Use <code>em</code> when you need font sizes or dimensions to scale relative to their parent container.</p>
+
+    <h3>4. <code>rem</code> - Relative to Root Font Size</h3>
+    <p>The unit <code>rem</code> is calculated relative to the font size defined on the <code>html</code> element.</p>
+    <div class="container">
+        <div class="relative-rem">
+            <p>This text is 1.5 times the size of the root font size.</p>
+        </div>
+    </div>
+    <h3>Example</h3>
+    <code>font-size: 1.5rem;</code>
+    <p>Use <code>rem</code> for consistent sizing that scales uniformly across your webpage.</p>
+
+    <h2>Conclusion</h2>
+    <p>Choosing the right unit depends on your design needs. Use absolute units for fixed sizes, and relative units for responsiveness and flexibility. Experiment with the examples above to see how they work!</p>
+</body>
+</html>

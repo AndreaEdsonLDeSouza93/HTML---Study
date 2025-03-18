@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overflowing</title>
+    <style>
+      .box {
+        width: 300px;
+        height: 150px;
+        border: 2px solid black;
+        margin: 20px 0;
+        overflow: visible; /* Default behavior */
+      }
+
+      .box.scroll {
+        overflow: scroll;
+      }
+
+      .box.hidden {
+        overflow: hidden;
+      }
+
+      .box.auto {
+        overflow: auto;
+      }
+
+      .box.clip {
+        overflow: clip;
+      }
+
+      p {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Overflowing</h1>
+    <a href="/index.html" style="display: block">Index</a>
+
+    <h2>Understanding Overflow</h2>
+    <p>
+      The CSS property <code>overflow</code> is used to control how content that
+      exceeds the dimensions of its container is handled. This is especially
+      useful when working with boxes that have set dimensions. Let's explore the
+      different values of the <code>overflow</code> property:
+    </p>
+
+    <ul>
+      <li>
+        <strong>visible</strong> (default): Content overflows outside the box.
+        No clipping or scrolling occurs.
+      </li>
+      <li>
+        <strong>hidden</strong>: Content is clipped and not visible beyond the
+        box boundaries.
+      </li>
+      <li>
+        <strong>scroll</strong>: Scrollbars are added, allowing users to scroll
+        through the overflowing content.
+      </li>
+      <li>
+        <strong>auto</strong>: Scrollbars appear only when the content overflows
+        the box.
+      </li>
+      <li>
+        <strong>clip</strong>: Content is clipped without scrollbars (similar to
+        <strong>hidden</strong>, but intended for special cases).
+      </li>
+    </ul>
+
+    <h2>Examples</h2>
+
+    <h3>Overflow: visible (default)</h3>
+    <div class="box">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare
+        lacinia quam, sit amet suscipit nisl.
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, fugit hic
+        necessitatibus, accusantium totam aperiam molestias nulla, ullam cumque
+        eum non at neque recusandae saepe! Commodi qui laudantium, optio rerum
+        in fuga tempore iure sequi consequatur, autem, quibusdam cum facere ea
+        magnam quam doloribus
+      </p>
+    </div>
+
+    <br />
+    <br />
+    <hr />
+
+    <h3>Overflow: hidden</h3>
+    <div class="box hidden">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare
+        lacinia quam, sit amet suscipit nisl.
+      </p>
+    </div>
+
+    <h3>Overflow: scroll</h3>
+    <div class="box scroll">
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis
+        inventore unde minima itaque dicta. Non error amet qui. Voluptate, earum
+        omnis sunt consequuntur illum quia! Facilis libero odit eum officiis
+        quia nulla corrupti, dignissimos iusto cupiditate, rem quibusdam
+        aspernatur quas consequatur ex sed? Rerum modi voluptas a qui? Non
+        totam, quaerat ab nam tenetur suscipit vel fugit iure itaque, mollitia
+        maxime corporis laborum dolorem. Veniam sapiente quo provident
+        perspiciatis. Optio adipisci doloribus nulla! Corrupti aliquam quaerat
+        deleniti dignissimos veritatis libero recusandae mollitia ea! Inventore
+        provident laborum eligendi minima tempora veniam est vero animi alias
+        adipisci, nam odio deserunt ipsum ducimus.
+      </p>
+    </div>
+
+    <h3>Overflow: auto</h3>
+    <div class="box auto">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare
+        lacinia quam, sit amet suscipit nisl. Proin feugiat sapien vel metus
+        vehicula fermentum. Quisque vulputate elit vel varius sagittis. Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Deleniti, perferendis
+        numquam asperiores, magnam eaque tempore nam enim delectus omnis
+        doloribus nulla, quam totam? Enim tempore voluptatum, assumenda labore
+        odio dignissimos sit aspernatur corporis eos quo quia porro nam vero
+        ipsa!
+      </p>
+    </div>
+
+    <h3>Overflow: clip</h3>
+    <div class="box clip">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare
+        lacinia quam, sit amet suscipit nisl. Proin feugiat sapien vel metus
+        vehicula fermentum. Quisque vulputate elit vel varius sagittis. Lorem
+        ipsum, dolor sit amet consectetur adipisicing elit. Ullam ipsa
+        voluptatem ipsum delectus doloremque consequuntur debitis eius! Commodi,
+        magnam dolorem. Nesciunt unde, cumque deserunt autem, doloribus itaque
+        ipsa quam modi voluptatibus vero tempore ut debitis accusantium animi
+        obcaecati optio natus eum! Quisquam ut ex temporibus nostrum. Maxime
+        architecto excepturi commodi!
+      </p>
+    </div>
+
+    <h2>Play with Overflow</h2>
+    <p>
+      Below, you can modify the dimensions and the
+      <code>overflow</code> behavior dynamically:
+    </p>
+    <label for="overflowSelect">Overflow behavior:</label>
+    <select id="overflowSelect">
+      <option value="visible">Visible</option>
+      <option value="hidden">Hidden</option>
+      <option value="scroll">Scroll</option>
+      <option value="auto">Auto</option>
+      <option value="clip">Clip</option>
+    </select>
+
+    <br>
+
+    <label for="boxWidth">Width:</label>
+    <input type="number" id="boxWidth" value="300" /> px<br />
+
+    <label for="boxHeight">Height:</label>
+    <input type="number" id="boxHeight" value="150" /> px<br />
+
+    <label for="numberOfWords">Number of Words:</label>
+    <input type="number" id="numberOfWords" value="20" /><br />
+
+    <div class="box demo">
+      <p id="lorem">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare
+        lacinia quam, sit amet suscipit nisl. Proin feugiat sapien vel metus
+        vehicula fermentum. Quisque vulputate elit vel varius sagittis.
+        Pellentesque habitant morbi tristique senectus et netus et malesuada
+        fames ac turpis egestas. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit.
+      </p>
+    </div>
+
+    <script>
+      const boxWidth = document.getElementById("boxWidth");
+      const boxHeight = document.getElementById("boxHeight");
+      const numberOfWordsInput = document.getElementById("numberOfWords");
+      const demoBox = document.querySelector(".box.demo");
+      const loremIpsum = document.getElementById("lorem");
+
+      // Sample lorem ipsum words for dynamic generation
+      const loremWords =
+        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare
+        lacinia quam, sit amet suscipit nisl. Proin feugiat sapien vel metus
+        vehicula fermentum. Quisque vulputate elit vel varius sagittis.
+        Pellentesque habitant morbi tristique senectus et netus et malesuada
+        fames ac turpis egestas. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Maxime, beatae dolorem, reprehenderit voluptate vel
+        harum ex officiis perspiciatis doloremque itaque sequi accusantium rerum
+        consequatur voluptatem, assumenda magnam corporis velit. Possimus
+        temporibus nemo, quam laboriosam vel voluptate magni libero perspiciatis
+        autem voluptatibus assumenda minima iure sed vitae sit praesentium ex
+        facere.`.split(" "); // Split into an array of words
+
+      // Update the number of words displayed
+      numberOfWordsInput.addEventListener("input", () => {
+        const numberOfWords = parseInt(numberOfWordsInput.value, 10);
+        if (!isNaN(numberOfWords) && numberOfWords > 0) {
+          loremIpsum.textContent = loremWords.slice(0, numberOfWords).join(" ");
+        }
+      });
+
+      // Update width dynamically
+      boxWidth.addEventListener("input", () => {
+        demoBox.style.width = `${boxWidth.value}px`;
+      });
+
+      // Update height dynamically
+      boxHeight.addEventListener("input", () => {
+        demoBox.style.height = `${boxHeight.value}px`;
+      });
+
+      // Update overflow behavior
+      overflowSelect.addEventListener('change', () => {
+            demoBox.style.overflow = overflowSelect.value;
+      });
+    </script>
+  </body>
+</html>

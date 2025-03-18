@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sizing-elements</title>
+
+    <style>
+      /*
+      this rule doesn't apply to pseudo elements, unless you specify it in the css rules
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+      */
+
+      body {
+        margin: 10px;
+      }
+
+      /*true size = [content + padding + border]*/
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        color: aliceblue;
+        padding: 20px;
+        border: 5px solid yellowgreen;
+        /*it sums also padding and border to the width*/
+        box-sizing: content-box;
+      }
+
+      .box-2 {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        color: black;
+        padding: 20px;
+        border: 5px solid orange;
+        /*the box size will respect the max widht and max height*/
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>sizing-elements</h1>
+
+    <a href="/index.html" style="display: block">Idex</a>
+
+    <p>box-sizing: content-box;</p>
+    <p>true size = [content + padding + border]</p>
+    <div class="box"></div>
+    <hr>
+    <p>box-sizing: border-box;</p>
+    <p>the box size will respect the max widht and max height</p>
+    <div class="box-2"></div>
+    <hr>
+    
+    <p>DIVs are <mark>block</mark> level elements</p>
+
+    <hr>
+
+    <div class="box-2"></div>
+    <div class="box-2"></div>
+    
+    <hr>
+
+    <p>Inline elements don't respect the HEIGHT property</p>
+    
+    <br>
+    <div>
+        <span class="box-2"></span><span class="box-2"></span>
+    </div>
+    <br>
+
+    <p>To do so we can use inline-block elements. they go inline (one after the other), but they keep theirs originals dimensions</p>
+    
+    <div>
+        <span class="box-2" style="display: inline-block;"></span><span class="box-2" style="display: inline-block;"></span>
+    </div>
+  </body>
+</html>
