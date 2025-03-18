@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Positioning</title>
+    <style>
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .boxes,
+      .squares {
+        border: 2px solid green;
+        margin: 20px auto;
+        padding: 10px;
+        max-width: 50rem;
+      }
+
+      .box,
+      .square {
+        width: 15rem;
+        height: 15rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Default position: static */
+      .box.one {
+        background-color: red;
+      }
+
+      /* Relative Positioning */
+      .box.two {
+        background-color: green;
+        position: relative;
+        left: 5rem;
+        top: -1rem;
+      }
+
+      .box.three {
+        background-color: blue;
+        position: relative;
+        right: -5rem;
+        top: -1rem;
+      }
+
+      /* Z-index demonstration */
+      .box.four {
+        background-color: orange;
+        position: relative;
+        z-index: 2; /* Higher priority */
+      }
+
+      .box.five {
+        background-color: brown;
+        position: relative;
+        top: -8rem;
+        right: -2rem;
+        z-index: 1; /* Lower priority */
+      }
+
+      /* Absolute Positioning: Parent container set to relative */
+      .squares {
+        position: relative;
+        border: 2px solid black;
+      }
+
+      .square.one {
+        background-color: darkmagenta;
+      }
+
+      .square.two {
+        background-color: black;
+        position: absolute; /* Positioned relative to the parent */
+        right: 0;
+        bottom: 0;
+      }
+
+      .square.three {
+        background-color: tomato;
+      }
+
+      /* Fixed Positioning Example */
+      .nav-bar {
+        height: 5rem;
+        width: 100%;
+        background-color: hsl(160, 100%, 75%, 0.8);
+        border: 1px solid navy;
+        position: fixed; /* Fixed at the top of the viewport */
+        top: 0;
+        left: 0;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+      }
+
+      .browser {
+        background-color: hsla(33, 44%, 46%, 0.7);
+        position: fixed;
+        min-height: 10rem;
+        width: auto;
+        left: 5rem;
+        right: 5rem;
+        bottom: 0;
+        padding: 10px;
+        color: white;
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 1.4rem;
+      }
+
+      .spacer {
+        height: 10rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav-bar">Fixed Nav Bar - Always on Top</div>
+
+    <h1>Positioning</h1>
+    <a href="/index.html" style="display: block">Index</a>
+
+    <h2>Relative Positioning</h2>
+    <p>
+      <strong>Relative positioning</strong> allows you to move an element
+      relative to its original (static) position. The movement is achieved using
+      <code>top</code>, <code>left</code>, <code>right</code>, or
+      <code>bottom</code>. The element still occupies space in the normal flow.
+    </p>
+    <div class="boxes">
+      <div class="box one">Static</div>
+      <div class="box two">Relative: Left +5rem, Top -1rem</div>
+      <div class="box three">Relative: Right -5rem, Top -1rem</div>
+      <div class="box four">Z-Index: 2</div>
+      <div class="box five">Z-Index: 1</div>
+    </div>
+
+    <h2>Absolute Positioning</h2>
+    <p>
+      <strong>Absolute positioning</strong> positions an element relative to its
+      nearest positioned ancestor. If no ancestor is positioned, it will be
+      relative to the viewport. This removes the element from the normal flow,
+      so other elements behave as if it doesn’t exist.
+    </p>
+    <div class="squares">
+      <div class="square one">Static</div>
+      <div class="square two">Absolute: Right 0, Bottom 0</div>
+      <div class="square three">Static</div>
+    </div>
+
+    <h2>Fixed Positioning</h2>
+    <p>
+      <strong>Fixed positioning</strong> positions the element relative to the
+      browser’s viewport. It stays in the same place even if the page is
+      scrolled. This is often used for sticky navigation bars or other UI
+      elements.
+    </p>
+    <div class="spacer"></div>
+    <div class="browser">Fixed Element - Stays at the Bottom</div>
+
+    <h2>Summary</h2>
+    <p>
+      <strong>Relative:</strong> Moves the element relative to its original
+      position but doesn’t remove it from the flow.<br />
+      <strong>Absolute:</strong> Positions the element relative to the closest
+      positioned ancestor, removing it from the normal flow.<br />
+      <strong>Fixed:</strong> Positions the element relative to the viewport,
+      and it remains fixed while scrolling.
+    </p>
+  </body>
+</html>
