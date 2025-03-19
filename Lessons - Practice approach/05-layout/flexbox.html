@@ -139,6 +139,38 @@
         margin-bottom: 5px;
         font-size: 14px;
       }
+
+      #mainAxis,
+      #crossAxis {
+        position: absolute;
+        background-color: rgba(0, 0, 255, 0.2);
+        z-index: 0;
+        pointer-events: none;
+      }
+      #mainAxis {
+        height: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      #crossAxis {
+        width: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      /* Optional: Style the boxes */
+      .box {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+        padding: 10px;
+        cursor: pointer;
+      }
+      /* Highlight selected box */
+      .selected {
+        border: 3px dashed red;
+      }
     </style>
   </head>
   <body>
@@ -147,7 +179,9 @@
       <label>Flex Direction:</label>
       <select id="flexDirection">
         <option value="row">Row</option>
+        <option value="row-reverse">Row Reverse</option>
         <option value="column">Column</option>
+        <option value="column-reverse">Column Reverse</option>
       </select>
       <label>Justify Content:</label>
       <select id="justifyContent">
@@ -193,6 +227,22 @@
       />
       <label>Gap:</label>
       <input type="range" id="gapControl" min="0" max="50" value="10" />
+
+      <label>Align Self:</label>
+      <select id="alignSelf">
+        <option value="auto">Auto</option>
+        <option value="flex-start">Flex Start</option>
+        <option value="center">Center</option>
+        <option value="flex-end">Flex End</option>
+        <option value="stretch">Stretch</option>
+        <option value="baseline">Baseline</option>
+      </select>
+
+      <label>Order:</label>
+      <input type="number" id="boxOrder" value="0" step="1" />
+
+      <label>Flex (Shorthand):</label>
+      <input type="text" id="flexProperty" placeholder="e.g., 1 0 auto" />
     </div>
     <button onclick="addBox()">Add Box</button>
     <button onclick="removeBox()">Remove Box</button>
@@ -201,6 +251,11 @@
       <input type="color" id="boxColor" value="#ffffff" />
     </div>
     <div class="container" id="flexContainer">
+      <!-- Main and Cross Axes -->
+      <div id="mainAxis"></div>
+      <div id="crossAxis"></div>
+
+      <!-- Flex Items -->
       <div class="box" onclick="selectBox(this)">A</div>
       <div class="box" onclick="selectBox(this)">B</div>
       <div class="box" onclick="selectBox(this)">C</div>
@@ -366,10 +421,119 @@
           spacing between rows.
         </p>
       </div>
+      <button class="accordion-header">
+        6. Understanding alignSelf and Flex Shorthand
+      </button>
+      <div class="accordion-body">
+        <p>
+          <strong>alignSelf:</strong> Overrides the alignItems setting for an
+          individual flex item.
+        </p>
+        <ul>
+          <li>
+            <code>auto</code>: Uses the parent’s
+            <code>alignItems</code> setting.
+          </li>
+          <li>
+            <code>flex-start</code>: Aligns the item to the start of the cross
+            axis.
+          </li>
+          <li><code>center</code>: Centers the item along the cross axis.</li>
+          <li>
+            <code>flex-end</code>: Aligns the item to the end of the cross axis.
+          </li>
+          <li>
+            <code>stretch</code>: Stretches the item to fill available space.
+          </li>
+        </ul>
+
+        <p><strong>Flex Shorthand:</strong> Combines three properties:</p>
+        <ul>
+          <li>
+            <code>flex-grow</code>: How much an item grows (e.g.,
+            <code>1</code> means it takes up available space).
+          </li>
+          <li>
+            <code>flex-shrink</code>: How much an item shrinks when space is
+            tight.
+          </li>
+          <li>
+            <code>flex-basis</code>: The initial size before growth/shrink.
+          </li>
+        </ul>
+        <p>
+          Example: <code>1 0 auto</code> → Item grows but does not shrink, with
+          an automatic base size.
+        </p>
+      </div>
     </div>
 
     <script>
       let selectedBox = null;
+      function updateAxes() {
+        const container = document.getElementById("flexContainer");
+        const boxA = document.getElementById("boxA");
+        const mainAxis = document.getElementById("mainAxis");
+        const crossAxis = document.getElementById("crossAxis");
+        const flexDirection = document.getElementById("flexDirection").value;
+
+        const containerRect = container.getBoundingClientRect();
+        const boxARect = boxA.getBoundingClientRect();
+
+        // Anchor main and cross axes to box A
+        if (flexDirection === "row" || flexDirection === "row-reverse") {
+          mainAxis.style.width = containerRect.width + "px";
+          mainAxis.style.left = "0";
+          mainAxis.style.top = boxARect.top + boxARect.height / 2 + "px";
+
+          crossAxis.style.height = containerRect.height + "px";
+          crossAxis.style.top = "0";
+          crossAxis.style.left = boxARect.left + boxARect.width / 2 + "px";
+        } else if (
+          flexDirection === "column" ||
+          flexDirection === "column-reverse"
+        ) {
+          mainAxis.style.height = containerRect.height + "px";
+          mainAxis.style.top = "0";
+          mainAxis.style.left = boxARect.left + boxARect.width / 2 + "px";
+
+          crossAxis.style.width = containerRect.width + "px";
+          crossAxis.style.left = "0";
+          crossAxis.style.top = boxARect.top + boxARect.height / 2 + "px";
+        }
+      }
+
+      // Extend updateFlexbox to include axis updates
+      function updateFlexbox() {
+        const container = document.getElementById("flexContainer");
+        container.style.flexDirection =
+          document.getElementById("flexDirection").value;
+        container.style.justifyContent =
+          document.getElementById("justifyContent").value;
+        container.style.alignItems =
+          document.getElementById("alignItems").value;
+        container.style.alignContent =
+          document.getElementById("alignContent").value;
+        container.style.flexWrap = document.getElementById("flexWrap").value;
+
+        // Update generated CSS and axes
+        document.getElementById("cssOutput").textContent = `
+.container {
+    display: flex;
+    flex-direction: ${container.style.flexDirection};
+    justify-content: ${container.style.justifyContent};
+    align-items: ${container.style.alignItems};
+    align-content: ${container.style.alignContent};
+    flex-wrap: ${container.style.flexWrap};
+}`;
+        updateAxes(); // Include axes update
+      }
+
+      // Call updateFlexbox on dropdown changes
+      document.querySelectorAll("select").forEach((select) => {
+        select.addEventListener("change", updateFlexbox);
+      });
+      /*
       function updateFlexbox() {
         const container = document.getElementById("flexContainer");
         container.style.flexDirection =
@@ -390,7 +554,7 @@
     align-content: ${container.style.alignContent};
     flex-wrap: ${container.style.flexWrap};
 }`;
-      }
+      }*/
       function addBox() {
         const box = document.createElement("div");
         box.className = "box";
@@ -436,6 +600,24 @@
       document.getElementById("gapControl").addEventListener("input", (e) => {
         document.getElementById("flexContainer").style.gap =
           e.target.value + "px";
+      });
+
+      document.getElementById("alignSelf").addEventListener("change", (e) => {
+        if (selectedBox) {
+          selectedBox.style.alignSelf = e.target.value;
+        }
+      });
+
+      document.getElementById("boxOrder").addEventListener("input", (e) => {
+        if (selectedBox) {
+          selectedBox.style.order = e.target.value;
+        }
+      });
+
+      document.getElementById("flexProperty").addEventListener("input", (e) => {
+        if (selectedBox) {
+          selectedBox.style.flex = e.target.value;
+        }
       });
 
       //code to make the accordion menu functional
