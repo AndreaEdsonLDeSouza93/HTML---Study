@@ -16,11 +16,15 @@
         padding: 0;
         box-sizing: border-box;
       }
+
+      /* Headings */
       h1 {
         text-align: center;
         margin-bottom: 20px;
         color: #333;
       }
+
+      /* Controls section styling */
       .controls {
         display: flex;
         flex-wrap: wrap;
@@ -44,6 +48,8 @@
         border: 1px solid #ccc;
         border-radius: 4px;
       }
+
+      /* Button styling */
       button {
         cursor: pointer;
         background-color: #007bff;
@@ -56,6 +62,8 @@
       button:hover {
         background-color: #0056b3;
       }
+
+      /* Container styling */
       .container {
         display: flex;
         border: 2px solid #333;
@@ -64,11 +72,12 @@
         padding: 10px;
         overflow: auto;
         background-color: #fafafa;
-        transition: all 0.3s ease;
         border-radius: 8px;
         box-sizing: border-box;
         max-width: 100%;
       }
+
+      /* Box styling */
       .box {
         display: flex;
         align-items: center;
@@ -78,8 +87,8 @@
         margin: 5px;
         border: 2px solid black;
         cursor: pointer;
-        transition: all 0.3s ease;
         background-color: white;
+        transition: all 0.3s ease;
       }
       .box:hover {
         transform: scale(1.1);
@@ -87,6 +96,8 @@
       .selected {
         border: 3px dashed red;
       }
+
+      /* Code mirror styling */
       .code-mirror {
         background: #f4f4f4;
         padding: 10px;
@@ -95,6 +106,8 @@
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
+
+      /* Color picker styling */
       .color-picker {
         display: flex;
         gap: 10px;
@@ -102,6 +115,7 @@
         margin-top: 10px;
       }
 
+      /* Accordion styling */
       .accordion {
         width: 100%;
         border: 1px solid #ccc;
@@ -115,10 +129,9 @@
         background: #007bff;
         color: white;
         border: none;
-        outline: none;
         cursor: pointer;
         font-size: 16px;
-        transition: background 0.3s;
+        transition: background-color 0.3s;
       }
       .accordion-header:hover {
         background: #0056b3;
@@ -128,62 +141,70 @@
         background: #f9f9f9;
         display: none;
       }
-      .accordion-body p {
-        margin: 0 0 10px;
+      .accordion-body p,
+      .accordion-body ul li {
+        margin-bottom: 10px;
         font-size: 14px;
       }
       .accordion-body ul {
         padding-left: 20px;
       }
-      .accordion-body ul li {
-        margin-bottom: 5px;
-        font-size: 14px;
+      /* flex-shorthand */
+      .multi-selected {
+        border: 2px solid navy;
+        background-color: lightblue; /* Optional for visual feedback */
       }
 
-      #mainAxis,
-      #crossAxis {
+      /* Axis markers */
+      #mainAxis {
         position: absolute;
+        height: 5px;
+        top: 50%;
         background-color: rgba(0, 0, 255, 0.2);
+        transform: translateY(-50%);
         z-index: 0;
         pointer-events: none;
       }
-      #mainAxis {
-        height: 5px;
-        top: 50%;
-        transform: translateY(-50%);
-      }
       #crossAxis {
+        position: absolute;
         width: 5px;
         left: 50%;
+        background-color: rgba(0, 0, 255, 0.2);
         transform: translateX(-50%);
+        z-index: 0;
+        pointer-events: none;
       }
-      /* Optional: Style the boxes */
-      .box {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 2px solid black;
-        padding: 10px;
-        cursor: pointer;
+
+      /* Label background styling */
+      #align-content-label,
+      #flex-wrap-label,
+      #flex-shorthand-label {
+        border-radius: 0.2rem;
+        height: 100%;
+        color: #000;
       }
-      /* Highlight selected box */
-      .selected {
-        border: 3px dashed red;
+      #align-content-label {
+        background-color: rgb(39, 246, 201);
+      }
+      #flex-wrap-label {
+        background-color: rgb(212, 252, 35);
+      }
+      #flex-shorthand-label {
+        background-color: hsl(185, 80%, 54%);
       }
     </style>
   </head>
   <body>
     <h1>Flexbox Playground</h1>
     <div class="controls">
-      <label>Flex Direction:</label>
+      <label><strong>Flex Direction:</strong></label>
       <select id="flexDirection">
         <option value="row">Row</option>
         <option value="row-reverse">Row Reverse</option>
         <option value="column">Column</option>
         <option value="column-reverse">Column Reverse</option>
       </select>
-      <label>Justify Content:</label>
+      <label><mark>Justify Content: (along the main axis)</mark></label>
       <select id="justifyContent">
         <option value="flex-start">Flex Start</option>
         <option value="center">Center</option>
@@ -192,7 +213,7 @@
         <option value="space-around">Space Around</option>
         <option value="space-evenly">Space Evenly</option>
       </select>
-      <label>Align Items:</label>
+      <label><mark>Align Items: (along the cross axis)</mark></label>
       <select id="alignItems">
         <option value="flex-start">Flex Start</option>
         <option value="center">Center</option>
@@ -200,7 +221,10 @@
         <option value="stretch">Stretch</option>
         <option value="baseline">Baseline</option>
       </select>
-      <label>Align Content:</label>
+      <label id="align-content-label"
+        >Align Content: (it works only if you have multiple lines in your
+        container)</label
+      >
       <select id="alignContent">
         <option value="flex-start">Flex Start</option>
         <option value="center">Center</option>
@@ -209,7 +233,10 @@
         <option value="space-around">Space Around</option>
         <option value="stretch">Stretch</option>
       </select>
-      <label>Flex Wrap:</label>
+      <label id="flex-wrap-label"
+        >Flex Wrap: (controls how the container behaves with multiple
+        items)</label
+      >
       <select id="flexWrap">
         <option value="nowrap">No Wrap</option>
         <option value="wrap">Wrap</option>
@@ -241,7 +268,10 @@
       <label>Order:</label>
       <input type="number" id="boxOrder" value="0" step="1" />
 
-      <label>Flex (Shorthand):</label>
+      <label id="flex-shorthand-label"
+        >Flex (Shorthand = flex-grow, (flex-basis || flex-grow), flex-basis
+        ):</label
+      >
       <input type="text" id="flexProperty" placeholder="e.g., 1 0 auto" />
     </div>
     <button onclick="addBox()">Add Box</button>
@@ -447,29 +477,88 @@
           </li>
         </ul>
 
-        <p><strong>Flex Shorthand:</strong> Combines three properties:</p>
+        <p><strong>Flex Shorthand:</strong> Combines three key properties:</p>
         <ul>
           <li>
-            <code>flex-grow</code>: How much an item grows (e.g.,
-            <code>1</code> means it takes up available space).
+            <code>flex-grow</code>: Defines how much an item can grow when extra
+            space is available.
+            <ul>
+              <li><code>0</code> (default): Item does not grow.</li>
+              <li>
+                <code>1</code>: Item grows proportionally to others based on
+                their grow values.
+              </li>
+              <li>
+                Higher values (e.g., <code>2</code>): Item grows faster relative
+                to others.
+              </li>
+            </ul>
           </li>
           <li>
-            <code>flex-shrink</code>: How much an item shrinks when space is
-            tight.
+            <code>flex-shrink</code>: Defines how much an item shrinks when
+            space is tight.
+            <ul>
+              <li><code>0</code>: Item does not shrink.</li>
+              <li>
+                <code>1</code> (default): Item shrinks proportionally with
+                others.
+              </li>
+              <li>
+                Higher values (e.g., <code>2</code>): Item shrinks faster
+                relative to others.
+              </li>
+            </ul>
           </li>
           <li>
-            <code>flex-basis</code>: The initial size before growth/shrink.
+            <code>flex-basis</code>: Sets the initial size of an item before
+            growth or shrinkage.
+            <ul>
+              <li>
+                <code>auto</code> (default): Uses the item’s content size.
+              </li>
+              <li>
+                Fixed values (e.g., <code>100px</code>): Item starts with a
+                specific size.
+              </li>
+              <li>
+                <code>0</code>: Ignores intrinsic size, relying only on
+                grow/shrink.
+              </li>
+            </ul>
           </li>
         </ul>
-        <p>
-          Example: <code>1 0 auto</code> → Item grows but does not shrink, with
-          an automatic base size.
-        </p>
+
+        <p><strong>Common Combinations of Flex Shorthand:</strong></p>
+        <ul>
+          <li>
+            <code>1 0 auto</code>: Item grows but does not shrink, with an
+            automatic base size.
+          </li>
+          <li>
+            <code>0 1 auto</code>: Item shrinks but does not grow, with an
+            automatic base size.
+          </li>
+          <li>
+            <code>1 1 0</code>: Item grows and shrinks equally, starting with no
+            base size.
+          </li>
+          <li>
+            <code>0 0 auto</code>: Item neither grows nor shrinks, retaining its
+            default size.
+          </li>
+          <li>
+            Custom example: <code>2 1 100px</code> → Starts at 100px, grows
+            twice as fast as others, and shrinks at the default rate.
+          </li>
+        </ul>
       </div>
     </div>
 
     <script>
-      let selectedBox = null;
+      // Globals
+      let selectedBoxes = []; // Array for multiple selected boxes
+
+      // Function to update axes (anchors main/cross axes based on box A)
       function updateAxes() {
         const container = document.getElementById("flexContainer");
         const boxA = document.getElementById("boxA");
@@ -480,8 +569,7 @@
         const containerRect = container.getBoundingClientRect();
         const boxARect = boxA.getBoundingClientRect();
 
-        // Anchor main and cross axes to box A
-        if (flexDirection === "row" || flexDirection === "row-reverse") {
+        if (["row", "row-reverse"].includes(flexDirection)) {
           mainAxis.style.width = containerRect.width + "px";
           mainAxis.style.left = "0";
           mainAxis.style.top = boxARect.top + boxARect.height / 2 + "px";
@@ -489,10 +577,7 @@
           crossAxis.style.height = containerRect.height + "px";
           crossAxis.style.top = "0";
           crossAxis.style.left = boxARect.left + boxARect.width / 2 + "px";
-        } else if (
-          flexDirection === "column" ||
-          flexDirection === "column-reverse"
-        ) {
+        } else if (["column", "column-reverse"].includes(flexDirection)) {
           mainAxis.style.height = containerRect.height + "px";
           mainAxis.style.top = "0";
           mainAxis.style.left = boxARect.left + boxARect.width / 2 + "px";
@@ -503,7 +588,7 @@
         }
       }
 
-      // Extend updateFlexbox to include axis updates
+      // Function to update flexbox styles and generated CSS
       function updateFlexbox() {
         const container = document.getElementById("flexContainer");
         container.style.flexDirection =
@@ -516,7 +601,7 @@
           document.getElementById("alignContent").value;
         container.style.flexWrap = document.getElementById("flexWrap").value;
 
-        // Update generated CSS and axes
+        // Update generated CSS output
         document.getElementById("cssOutput").textContent = `
 .container {
     display: flex;
@@ -526,35 +611,25 @@
     align-content: ${container.style.alignContent};
     flex-wrap: ${container.style.flexWrap};
 }`;
-        updateAxes(); // Include axes update
       }
 
-      // Call updateFlexbox on dropdown changes
-      document.querySelectorAll("select").forEach((select) => {
-        select.addEventListener("change", updateFlexbox);
-      });
-      /*
-      function updateFlexbox() {
-        const container = document.getElementById("flexContainer");
-        container.style.flexDirection =
-          document.getElementById("flexDirection").value;
-        container.style.justifyContent =
-          document.getElementById("justifyContent").value;
-        container.style.alignItems =
-          document.getElementById("alignItems").value;
-        container.style.alignContent =
-          document.getElementById("alignContent").value;
-        container.style.flexWrap = document.getElementById("flexWrap").value;
-        document.getElementById("cssOutput").textContent = `
-.container {
-    display: flex;
-    flex-direction: ${container.style.flexDirection};
-    justify-content: ${container.style.justifyContent};
-    align-items: ${container.style.alignItems};
-    align-content: ${container.style.alignContent};
-    flex-wrap: ${container.style.flexWrap};
-}`;
-      }*/
+      // Function to toggle box selection (highlight and update array)
+      function toggleBoxSelection(box) {
+        if (box.classList.contains("multi-selected")) {
+          box.classList.remove("multi-selected");
+          selectedBoxes = selectedBoxes.filter((b) => b !== box);
+        } else {
+          box.classList.add("multi-selected");
+          selectedBoxes.push(box);
+        }
+      }
+
+      // Function to select a box and handle align-self
+      function selectBox(box) {
+        toggleBoxSelection(box);
+      }
+
+      // Function to add a new box
       function addBox() {
         const box = document.createElement("div");
         box.className = "box";
@@ -565,6 +640,8 @@
         document.getElementById("flexContainer").appendChild(box);
         updateFlexbox();
       }
+
+      // Function to remove the last box
       function removeBox() {
         const boxes = document.querySelectorAll(".box");
         if (boxes.length > 1) {
@@ -572,55 +649,49 @@
           updateFlexbox();
         }
       }
-      function selectBox(box) {
-        if (selectedBox) selectedBox.classList.remove("selected");
-        selectedBox = box;
-        box.classList.add("selected");
-      }
-      document.getElementById("boxColor").addEventListener("input", (event) => {
-        if (selectedBox) {
-          selectedBox.style.backgroundColor = event.target.value;
-        }
-      });
-      document.querySelectorAll("select").forEach((select) => {
-        select.addEventListener("change", updateFlexbox);
-      });
+
+      // Event listeners for dynamic inputs
       document
-        .getElementById("containerWidth")
-        .addEventListener("input", (e) => {
-          document.getElementById("flexContainer").style.width =
-            e.target.value + "px";
+        .querySelectorAll("select")
+        .forEach((select) => select.addEventListener("change", updateFlexbox));
+
+      document.querySelectorAll("input").forEach((input) => {
+        input.addEventListener("input", (event) => {
+          const container = document.getElementById("flexContainer");
+          if (event.target.id === "containerWidth") {
+            container.style.width = event.target.value + "px";
+          } else if (event.target.id === "containerHeight") {
+            container.style.height = event.target.value + "px";
+          } else if (event.target.id === "gapControl") {
+            container.style.gap = event.target.value + "px";
+          } else if (
+            event.target.id === "flexProperty" &&
+            selectedBoxes.length > 0
+          ) {
+            selectedBoxes.forEach((box) => {
+              box.style.flex = event.target.value;
+            });
+          } else if (
+            event.target.id === "alignSelf" &&
+            selectedBoxes.length === 1
+          ) {
+            selectedBoxes[0].style.alignSelf = event.target.value;
+          }
         });
+      });
+
       document
-        .getElementById("containerHeight")
-        .addEventListener("input", (e) => {
-          document.getElementById("flexContainer").style.height =
-            e.target.value + "px";
+        .getElementById("alignSelf")
+        .addEventListener("change", (event) => {
+          if (selectedBoxes.length === 1) {
+            // Ensure only one box is selected
+            selectedBoxes[0].style.alignSelf = event.target.value;
+          } else {
+            alert("Please select a single box to apply Align Self.");
+          }
         });
-      document.getElementById("gapControl").addEventListener("input", (e) => {
-        document.getElementById("flexContainer").style.gap =
-          e.target.value + "px";
-      });
 
-      document.getElementById("alignSelf").addEventListener("change", (e) => {
-        if (selectedBox) {
-          selectedBox.style.alignSelf = e.target.value;
-        }
-      });
-
-      document.getElementById("boxOrder").addEventListener("input", (e) => {
-        if (selectedBox) {
-          selectedBox.style.order = e.target.value;
-        }
-      });
-
-      document.getElementById("flexProperty").addEventListener("input", (e) => {
-        if (selectedBox) {
-          selectedBox.style.flex = e.target.value;
-        }
-      });
-
-      //code to make the accordion menu functional
+      // Accordion menu functionality
       const accordionHeaders = document.querySelectorAll(".accordion-header");
       accordionHeaders.forEach((header) => {
         header.addEventListener("click", () => {
