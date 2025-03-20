@@ -65,6 +65,7 @@
 
       /* Container styling */
       .container {
+        position: relative; /* Add this to ensure axes are positioned inside */
         display: flex;
         border: 2px solid #333;
         height: 300px;
@@ -156,23 +157,21 @@
       }
 
       /* Axis markers */
-      #mainAxis {
-        position: absolute;
-        height: 5px;
-        top: 50%;
-        background-color: rgba(0, 0, 255, 0.2);
-        transform: translateY(-50%);
-        z-index: 0;
-        pointer-events: none;
-      }
+      #mainAxis,
       #crossAxis {
         position: absolute;
-        width: 5px;
-        left: 50%;
-        background-color: rgba(0, 0, 255, 0.2);
-        transform: translateX(-50%);
-        z-index: 0;
+        background-color: hsla(13, 84%, 56%, 0.4); /* Default main axis color */
+        z-index: 10;
         pointer-events: none;
+      }
+
+      #crossAxis {
+        background-color: hsla(
+          120,
+          90%,
+          60%,
+          0.6
+        ); /* Default cross axis color */
       }
 
       /* Label background styling */
@@ -558,33 +557,38 @@
       // Globals
       let selectedBoxes = []; // Array for multiple selected boxes
 
-      // Function to update axes (anchors main/cross axes based on box A)
       function updateAxes() {
         const container = document.getElementById("flexContainer");
-        const boxA = document.getElementById("boxA");
         const mainAxis = document.getElementById("mainAxis");
         const crossAxis = document.getElementById("crossAxis");
         const flexDirection = document.getElementById("flexDirection").value;
 
         const containerRect = container.getBoundingClientRect();
-        const boxARect = boxA.getBoundingClientRect();
 
         if (["row", "row-reverse"].includes(flexDirection)) {
-          mainAxis.style.width = containerRect.width + "px";
+          // Horizontal main axis
+          mainAxis.style.width = "100%";
+          mainAxis.style.height = "2px";
           mainAxis.style.left = "0";
-          mainAxis.style.top = boxARect.top + boxARect.height / 2 + "px";
+          mainAxis.style.top = "50%";
 
-          crossAxis.style.height = containerRect.height + "px";
+          // Vertical cross axis
+          crossAxis.style.height = "100%";
+          crossAxis.style.width = "2px";
           crossAxis.style.top = "0";
-          crossAxis.style.left = boxARect.left + boxARect.width / 2 + "px";
+          crossAxis.style.left = "50%";
         } else if (["column", "column-reverse"].includes(flexDirection)) {
-          mainAxis.style.height = containerRect.height + "px";
+          // Vertical main axis
+          mainAxis.style.height = "100%";
+          mainAxis.style.width = "2px";
           mainAxis.style.top = "0";
-          mainAxis.style.left = boxARect.left + boxARect.width / 2 + "px";
+          mainAxis.style.left = "50%";
 
-          crossAxis.style.width = containerRect.width + "px";
+          // Horizontal cross axis
+          crossAxis.style.width = "100%";
+          crossAxis.style.height = "2px";
           crossAxis.style.left = "0";
-          crossAxis.style.top = boxARect.top + boxARect.height / 2 + "px";
+          crossAxis.style.top = "50%";
         }
       }
 
@@ -611,6 +615,8 @@
     align-content: ${container.style.alignContent};
     flex-wrap: ${container.style.flexWrap};
 }`;
+
+        updateAxes();
       }
 
       // Function to toggle box selection (highlight and update array)
