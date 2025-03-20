@@ -24,6 +24,23 @@
         color: #333;
       }
 
+      a {
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+        width: fit-content;
+        text-decoration: none;
+      }
+
+      a:hover {
+        background-color: #0056b3;
+        color: #f8f8f8;
+      }
+
       /* Controls section styling */
       .controls {
         display: flex;
@@ -195,6 +212,7 @@
   </head>
   <body>
     <h1>Flexbox Playground</h1>
+    <a href="/index.html" style="display: block">Index</a>
     <div class="controls">
       <label><strong>Flex Direction:</strong></label>
       <select id="flexDirection">
