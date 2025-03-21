@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hiding-elements</title>
+  </head>
+  <style>
+    .hidden {
+      visibility: hidden;
+    }
+
+    .none {
+      display: inherit;
+    }
+
+    #box {
+      height: 8rem;
+      width: 8rem;
+      background-color: blue;
+    }
+  </style>
+  <body>
+    <h1>Lorem, ipsum.</h1>
+
+    <a href="/index.html">index</a>
+
+    <p>
+      <span class="none">Lorem</span> ipsum dolor sit amet consectetur
+      <span class="hidden">adipisicing elit.</span> Cupiditate hic molestias
+      iusto labore qui dolorem ab assumenda optio quas aliquam!
+    </p>
+    <ul>
+      <li>
+        dispaly: none; it removes the element from the html doc, like it doesnpt
+        exist
+      </li>
+      <li>
+        visibility: hidden; self descriptive, the element is hidden but is
+        there.
+      </li>
+    </ul>
+
+    <div id="box"></div>
+    <button id="buttonHidden">Change Hidden Property</button>
+    <button id="buttonDisplay">Change Display property</button>
+    <script>
+      const hiddenBoxValue = document.getElementById("box");
+
+      document.getElementById("buttonHidden").onclick = function isHidden() {
+        let actualValue = hiddenBoxValue.style.visibility;
+
+        if (actualValue == "hidden") {
+          hiddenBoxValue.style.visibility = "visible";
+        } else {
+          hiddenBoxValue.style.visibility = "hidden";
+        }
+      };
+
+      const dispalyBoxValue = hiddenBoxValue;
+
+      document.getElementById("buttonDisplay").onclick =
+        function isDisplayed() {
+          let temp = dispalyBoxValue.style.display;
+
+          if (temp == "none") {
+            dispalyBoxValue.style.display = "inherit";
+          } else {
+            dispalyBoxValue.style.display = "none";
+          }
+        };
+    </script>
+  </body>
+</html>
