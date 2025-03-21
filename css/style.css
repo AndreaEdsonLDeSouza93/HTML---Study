@@ -1,45 +1,134 @@
+/* Root Colors */
+:root {
+  --primary-color: #1a1a2e; /* Deep Navy */
+  --secondary-color: #16213e; /* Dark Blue */
+  --text-color: #ffffff; /* White */
+  --highlight-color: #e94560; /* Bright Red */
+  --background-color: #f3f3f3; /* Light Background */
+}
 
+/* General Styles */
 body {
-    margin: 10px;
-    background-color: azure;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  scroll-behavior: smooth;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: navy;
-    color: white;
-    border-radius: 10px;
-    padding: 10px;
-    max-width: 500px;
-    margin: 10px 10px 15px 10px;
+h1,
+h2,
+p,
+li {
+  margin-left: 1rem;
 }
 
-p, div {
-    background-color: navy;
-    color: white;
-    border-radius: 10px;
-    padding: 10px;
-    max-width: 500px;
-    margin: 10px;
+li {
+  list-style-type: none;
 }
 
-a{
-    background-color: navy;
-    color: white;
-    border-radius: 15px;
-    padding: 10px;
-    margin: 10px 10px 10px 10px;
+a {
+  text-decoration: none;
 }
 
-ul, ol {
-    background-color: navy;
-    color: white;
-    border-radius: 15px;
-    padding: 25px;
-    max-width: 500px;
-    margin: 10px;
+/* Navbar */
+/* Navbar */
+.navbar {
+  background-color: var(--secondary-color);
+  width: 100%;
+  min-width: 300px; /* Imposta una larghezza minima per prevenire restringimenti eccessivi */
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Spazio per evitare la sovrapposizione */
 }
 
-li::marker {
-    color: whitesmoke;
+/* Navbar UL */
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Aggiunge la disposizione in riga */
+  flex-wrap: wrap; /* Permette di andare su più righe quando lo spazio è limitato */
+  justify-content: flex-start; /* Allinea a sinistra */
+  align-items: center; /* Centra verticalmente */
+}
+
+/* Navbar LI */
+.navbar ul li {
+  margin: 10px 20px 0 0; /* Aggiusta margini per migliore spaziatura verticale quando "stacked" */
+}
+
+/* Navbar Links */
+.navbar ul li a {
+  text-decoration: none;
+  color: var(--text-color);
+  white-space: nowrap; /* Previene la divisione del testo in più righe */
+}
+
+/* Navbar effect */
+.navbar ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: var(--highlight-color);
+  transition: width 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover {
+  color: var(--highlight-color);
+}
+
+.navbar ul li a:hover::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 60px 20px; /* Spazio sufficiente per evitare la sovrapposizione */
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .navbar ul.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
 }

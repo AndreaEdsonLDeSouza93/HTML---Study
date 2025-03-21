@@ -4,10 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Index Lessons Exercise</title>
-    <link rel="stylesheet" href="css/index-style.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <h1>Index - Lessons exercises</h1>
+    <nav class="navbar">
+      <button class="menu-toggle">☰</button>
+      <ul>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/andrea-edson-lorenzoni-579973341/"
+            target="_blank"
+            >LinkedIn</a
+          >
+        </li>
+        <li>
+          <a href="https://flowcv.com/resume/d68q7rewv9se" target="_blank"
+            >My Online CV</a
+          >
+        </li>
+        <li>
+          <a href="https://github.com/AndreEdson93L" target="_blank"
+            >My First GitHub</a
+          >
+        </li>
+        <li>
+          <a href="https://github.com/AndreaEdsonLDeSouza93" target="_blank"
+            >My New GitHub</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://andreaedsonldesouza93.github.io/HTML---Study/"
+            target="_blank"
+            >My Portfolio</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <h1>Welcome to My Portfolio</h1>
+    <p>Explore my projects, experiences, and technical journey.</p>
 
     <h2>1-Getting Started</h2>
 
@@ -102,8 +138,12 @@
     <ol>
       <li><a href="/04-css-basics/introduction.html">Introduction</a></li>
       <li><a href="/04-css-basics/providing-css.html">Providing CSS</a></li>
-      <li><a href="/04-css-basics/normalizing-css.html">Normalizing CSS</a></li>
-      <li><a href="/04-css-basics/basic-selectors.html">Basic Selectors</a></li>
+      <li>
+        <a href="/04-css-basics/normalizing-css.html">Normalizing CSS</a>
+      </li>
+      <li>
+        <a href="/04-css-basics/basic-selectors.html">Basic Selectors</a>
+      </li>
       <li>
         <a href="/04-css-basics/relational-selectors.html"
           >Relational Selectors</a
@@ -138,11 +178,8 @@
       <li><a href="/04-css-basics/shadows.html">Shadows</a></li>
       <li>
         <a href="/04-css-basics/center-the-div.html"
-          ><img
-            src="/Multimedia/jesus.jpg"
-            alt="how to center a div: the many ways of doing so"
-            style="width: 100px; height: 100px; border-radius: 50px"
-        /></a>
+          >How to center a div (the old way)</a
+        >
       </li>
       <li><a href="/04-css-basics/flexbox.html">Flexbox</a></li>
       <li><a href="/04-css-basics/exercises.html">Exercises</a></li>
@@ -154,12 +191,23 @@
       <li><a href="/05-layout/the-box-model.html">The Box Model</a></li>
       <li><a href="/05-layout/sizing-elements.html">Sizing Elements</a></li>
       <li><a href="/05-layout/overflowing.html">Overflowing</a></li>
-      <li><a href="/05-layout/measurement-units.html">Measurement Units</a></li>
+      <li>
+        <a href="/05-layout/measurement-units.html">Measurement Units</a>
+      </li>
       <li><a href="/05-layout/positioning.html">Positioning</a></li>
       <li><a href="/05-layout/flexbox.html">Flexbox</a></li>
       <li><a href="/05-layout/grid-layout-00.html">grid-layout</a></li>
-      <li><a href="/05-layout/grid-notes.html">grid notes</a></li>    
-      <li><a href="/05-layout/hiding-elements.html">hiding elements</a></li>    
+      <li><a href="/05-layout/grid-notes.html">grid notes</a></li>
+      <li><a href="/05-layout/hiding-elements.html">hiding elements</a></li>
     </ol>
+
+    <script>
+      const toggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".navbar ul");
+
+      toggle.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+      });
+    </script>
   </body>
 </html>
