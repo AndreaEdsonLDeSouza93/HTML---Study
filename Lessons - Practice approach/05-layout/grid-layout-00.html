@@ -8,88 +8,162 @@
   <style>
     body {
       font-size: 62.5%;
-      margin: 0;
+      margin: 10px;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 0.16rem;
+      text-align: center;
+      padding: 2rem;
     }
 
-    h1,
-    h2,
-    a,
-    p,
-    ol,
-    ul,
+    h1 {
+        font-size: 2.5rem;
+        color: #0073e6;
+        margin-bottom: 2rem;
+    }
+
+    .nav-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        background-color: #0073e6;
+        color: #ffff;
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        transition: #0073e6 0.3s ease-in-out;
+    }
+
+    .nav-links a:hover {
+        background-color: #005bb5;
+    }
+
     section {
-      margin: 10px;
+        max-width: 80rem;
+        margin: 0 auto 40px;
+        background: #f5f5f5;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0px 0.4rem rgba(0, 0, 0, 0.1);
+    }
+
+    ul,
+    ol {
+      text-align: left;
+      margin: 0 auto;
+      list-style-type: none;
+      max-width: 60rem;
+    }
+
+    ul li, ol li {
+    padding: 5px;
+    }
+
+    /* Code Styling */
+    code {
+    background: #eee;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    }
+
+    /* Grid Example Boxes */
+    .grid-example {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 20px;
+    background: #e0f7fa;
+    border-radius: 8px;
+    margin-top: 20px;
+    }
+
+    .grid-example div {
+    background: #0073e6;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
     }
 
     .container {
       display: grid;
-      /* 
-         2 columns
-         3 rows  
-        */
+      /*2 columns 3 rows*/
       grid-template-columns: 10rem 10rem;
       grid-template-rows: 10rem 10rem 10rem;
 
-      /* we center the boxes inside the cells of the grid 
-         the default value is strech
+      /* 
+        how to center the boxes inside the cells of the grid. 
+        the default value of: 
+            justify-items is strech
+            align-items is strech
       */
-      justify-items: center;
-      align-items: center;
+      justify-items: center; /* Centers items in each cell */
+      align-items: center; /* Centers items vertically */
 
-      /* we center the grid inside its container
-         tip: if for example you have 4 rows, even if their are "empty", the will get centered
-      
-      */
-      justify-content: center;
-      align-content: center;
+      justify-content: center; /* Centers the entire grid inside the container */
+      align-content: center; /* Centers the grid along the vertical axis */
 
-      border: 2px solid black;
-      margin: 1rem;
+      border: 10px solid #050505;
+      box-sizing: border-box;
+      margin-bottom: 1rem;
     }
 
+    /* Using Repeat for Grid */
     .container-repeat {
       display: grid;
 
-      /*
-      grid-template-columns: repeat(3, 5rem);
-      grid-template-rows: repeat(3, 6.5rem);
-      */
+      grid-template-columns: 30% 70%;
+      grid-template-rows: repeat(3, 10rem);
 
-      /* in this case 30% of space for the first column and 70% of space for the second column */
+      /* shorthand for grid-template-column && grid-template-rows */
       grid-template: repeat(3, 10rem) / 30% 70%;
 
-      /* this is the default value */
+      /* this is the default value so we could actually deleted */
       justify-items: stretch;
       align-items: stretch;
 
-      border: 2px solid red;
-      margin: 1rem;
+      border: 10px solid #00a3ff;
+      margin-bottom: 1rem;
     }
 
-    /* grid-template === shorthand for 1.rows and 2.columns */
+    /* Grid with Fractional Units */
     .container-repeat-template {
       display: grid;
-      /* fr is like %, but it takes just the available space */
-      grid-template: repeat(3, 10rem) / 10 rem 30fr 70fr;
+      /* fr is like %, but it divides the available space proportionally */
+      grid-template: repeat(2, 20rem) / 10rem 30fr 70fr;
 
-      /*row, column*/
+      /* First gap definition (row-gap: 2rem, column-gap: 4rem) - the second gap overrides this */
       gap: 2rem 4rem;
+      /* Second gap definition (both row-gap and column-gap set to 1rem) - this is the active one */
+      gap: 1rem;
 
-      border: 2px solid green;
-      margin: 1rem;
+      border: 1rem solid green; /* Adds a green border around the container */
+      margin-bottom: 1rem; /* Adds spacing below the container */
+      height: 100vh; /* Sets the height of the container to fill the viewport height */
+    
+      overflow: auto;
+      box-sizing: border-box;
     }
 
+    /* Grid with Auto-Sizing */
     .container-auto {
       display: grid;
-      /* auto takes all the available space */
-      grid-template: 10rem auto 10rem / 30fr 70fr;
-      border: 3px solid teal;
-      height: 90vh;
-      row-gap: 2rem;
-      column-gap: 2rem;
+      /* auto: the cell takes all the available space */
+      grid-template: 33fr 33fr 33fr / 3rem 3rem auto;
+
+      border: 1rem solid teal;
+      height: 100vh;
+      gap: 0.3rem;
+      margin-bottom: 1rem;
     }
 
+    /* Placing Items in Grid */
     .container-placing-items {
       display: grid;
 
@@ -100,190 +174,223 @@
       gap: 1rem;
 
       background-color: aquamarine;
-      border: 2px solid navy;
+      border: 1rem solid navy;
+      margin-bottom: 1rem;
     }
 
+    /* grid with named areas */
     .container-named-area {
       display: grid;
       grid-template: 10rem auto 10rem / 30fr 70fr;
 
-      /*a period means an empty cell*/
+      /*a period means an empty cell
+        
+        "header header"
+        "sidebar  main"
+        ". footer"
+
+      */
       grid-template-areas:
         "header header"
         "sidebar main"
-        ". footer";
+        "footer footer";
 
       gap: 1rem;
-      border: 3px solid white;
+      border: 1rem solid goldenrod;
       background-color: navy;
       height: 100vh;
+      margin-bottom: 1rem;
+    }
+
+    /* Box Styling */
+    .box,
+    .box-two,
+    .box-three,
+    .box-named-area {
+      /* to center the content inside the box */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      color: white;
+      border: 1px solid green;
+
+      font-size: 0.6rem;
+      line-height: 1.5rem;
+      padding: 0.3rem;
     }
 
     .box-named-area {
-      background-color: #050505;
-      color: white;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background-color: rgb(82, 27, 233);
+      font-size: 1.5rem;
     }
 
     .box {
-      width: 3rem;
-      height: 3rem;
+      width: 5rem;
+      height: 5rem;
+
       background-color: blue;
-      color: white;
-      /* to center the letters a, b, c, d */
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
     .box-two {
-      background-color: rgb(255, 77, 0);
-      color: white;
-      border: 0.1rem solid #050505;
-
-      /* to center the letters a, b, c, d */
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background-color: rgb(15, 72, 242);
+      border: 0.1rem solid #dd08c4;
     }
 
     .box-three {
       background-color: #050505;
-      color: white;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border: 1px solid rgb(240, 240, 8);
     }
 
-    /* you can inspect the element to see the line numbers in order to set this property */
+    /* 
+       you can inspect the element 
+       to see the line numbers (in the grid) 
+       in order to set these properties 
+       (def. the position of the box .p):
+       
+       grid-column
+       grid-row 
+    */
+
+    /* single box - defining position(s) inside the grid */
     .p {
       grid-column: 2;
-      grid-column: 1 / 4;
-      /*1 = column; -1 = last columns;*/
-      grid-column: 1 / -1;
+      grid-column: 1 / 4; /* from column 1 to column 4*/
+
+      /* 1 = first-column; -1 = last-column; */
       grid-column: 1 / span 3;
+      grid-column: 1 / -1;
 
       grid-row: 2;
       grid-row: 2 / 4;
 
-      grid-row: 2 / span 2;
+      /*default value of grid-row and grid-column is always 1*/
 
-      /*default*/
       grid-row: 1;
-
       grid-column: 1 / span 2;
 
-      /*grid-area*/
-
       /*
-        start | end
-        (row/column) / (row/column)
-       */
-      grid-area: 1/1/1/3;
+        | start      | end        |
+        |row/column  | row/column |
+        |grid-area: (shorthand)   |
+        |grid-area: 1/1/1/3;      |
+      */
     }
 
-    .first {
-     /*location by name*/
-        grid-area: header;
+    .first-box {
+      grid-area: header; /*define the location by name*/
     }
 
-    .fourth {
-        grid-area: footer;
+    .fourth-box {
+      grid-area: footer; /*define the location by name*/
     }
   </style>
   <body>
-    <h1>We use grid to lay out elements in both rows and columns</h1>
-
-    <a href="/index.html">index</a>
-
+    <header>
+        <h1>Understanding CSS Grid</h1>
+        <nav class="nav-links">
+            <a href="/index.html">Home</a>
+            <a href="/05-layout/grid-notes.html">Grid Notes</a>
+        </nav>
+    </header>
+    
     <main>
-      <section>
-        tipycal layout for a website is:
-        <ul>
-          <li>Header</li>
-          <li>Sidebar - Content</li>
-          <li>Footer</li>
-        </ul>
-      </section>
-
-      <h2>Defining a grid</h2>
-      <p>Inside a container we use:</p>
-      <ol>
-        <li>display: grid</li>
-        <li>grid-template-rows</li>
-        <li>grid-template-columns</li>
-      </ol>
-
-      <p>Aligning items inside the cell (inside the grid container)</p>
-      <ol>
-        <li>justify-items (along the horizontal axis)</li>
-        <li>align-items (along the horizontal axis)</li>
-      </ol>
-
-      <p>GAP</p>
-      <ol>
-        <li>row-gap</li>
-        <li>column-gap</li>
-        <li>gap (shortand)</li>
-      </ol>
-
-      <p>placing items</p>
-      <ul>
-        <li>grid-row</li>
-        <li>grid-column</li>
-        <li>grid-area (shorthand)</li>
-      </ul>
-
-      <p>placing items in named areas</p>
-      <ul>
-        <li>grid-template-areas</li>
-        <li>grid-area</li>
-      </ul>
+        <section class="layout-overview">
+            <h2>Typical Website Layout</h2>
+            <ul>
+                <li><strong>Header</strong></li>
+                <li><strong>Sidebar - Content</strong></li>
+                <li><strong>Footer</strong></li>
+            </ul>
+        </section>
+        
+        <section class="grid-basics">
+            <h2>Defining a Grid</h2>
+            <p>To define a grid inside a container, use:</p>
+            <ol>
+                <li><code>display: grid;</code></li>
+                <li><code>grid-template-rows</code></li>
+                <li><code>grid-template-columns</code></li>
+            </ol>
+        </section>
+        
+        <section class="alignment">
+            <h2>Aligning Items Inside a Grid Container</h2>
+            <ol>
+                <li><code>justify-items</code> (aligns items along the horizontal axis)</li>
+                <li><code>align-items</code> (aligns items along the vertical axis)</li>
+            </ol>
+        </section>
+        
+        <section class="gap-properties">
+            <h2>Gap Properties</h2>
+            <ol>
+                <li><code>row-gap</code></li>
+                <li><code>column-gap</code></li>
+                <li><code>gap</code> (shorthand for both)</li>
+            </ol>
+        </section>
+        
+        <section class="placing-items">
+            <h2>Placing Items</h2>
+            <ul>
+                <li><code>grid-row</code></li>
+                <li><code>grid-column</code></li>
+                <li><code>grid-area</code> (shorthand)</li>
+            </ul>
+        </section>
+        
+        <section class="named-areas">
+            <h2>Placing Items in Named Areas</h2>
+            <ul>
+                <li><code>grid-template-areas</code></li>
+                <li><code>grid-area</code></li>
+            </ul>
+        </section>
+    </main>
 
       <div class="container">
-        <div class="box">A</div>
-        <div class="box">B</div>
-        <div class="box">C</div>
-        <div class="box">D</div>
+        <div class="box">.container (A)</div>
+        <div class="box">.container (B)</div>
+        <div class="box">.container (C)</div>
+        <div class="box">.container (D)</div>
+        <div class="box">.container (E)</div>
+        <div class="box">.container (F)</div>
       </div>
 
       <div class="container-repeat">
-        <div class="box-two">A</div>
-        <div class="box-two">B</div>
-        <div class="box-two">C</div>
-        <div class="box-two">D</div>
+        <div class="box-two">.container-repeat A</div>
+        <div class="box-two">.container-repeat B</div>
+        <div class="box-two">.container-repeat C</div>
+        <div class="box-two">.container-repeat D</div>
       </div>
 
       <div class="container-repeat-template">
-        <div class="box-two">A</div>
-        <div class="box-two">B</div>
-        <div class="box-two">C</div>
-        <div class="box-two">D</div>
+        <div class="box-two">.container-repeat-template A</div>
+        <div class="box-two">.container-repeat-template B</div>
+        <div class="box-two">.container-repeat-template C</div>
+        <div class="box-two">.container-repeat-template D</div>
       </div>
 
       <div class="container-auto">
-        <div class="box-two">A</div>
-        <div class="box-two">B</div>
-        <div class="box-two">C</div>
-        <div class="box-two">D</div>
+        <div class="box-two">.container-auto 1</div>
+        <div class="box-two">.container-auto 2</div>
+        <div class="box-two">.container-auto 3</div>
+        <div class="box-two">.container-auto 4</div>
       </div>
 
       <div class="container-placing-items">
-        <div class="box-three p">P</div>
-        <div class="box-three">S</div>
-        <div class="box-three">Q</div>
-        <div class="box-three">R</div>
+        <div class="box-three p">.container-placing-items S</div>
+        <div class="box-three">.container-placing-items P</div>
+        <div class="box-three">.container-placing-items Q</div>
+        <div class="box-three">.container-placing-items R</div>
       </div>
 
       <div class="container-named-area">
-        <div class="box-named-area first">1</div>
-        <div class="box-named-area second">2</div>
-        <div class="box-named-area third">3</div>
-        <div class="box-named-area fourth">4</div>
+        <div class="box-named-area first-box">HEADER</div>
+        <div class="box-named-area second-box">SIDEBAR</div>
+        <div class="box-named-area third-box">MAIN</div>
+        <div class="box-named-area fourth-box">FOOTER</div>
       </div>
     </main>
   </body>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid Explanation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+        background-color: #f5f5f5;
+        color: #333;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #222;
+      }
+
+      .nav-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        background-color: #0073e6;
+        color: #ffff;
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        transition: #0073e6 0.3s ease-in-out;
+      }
+
+      .nav-links a:hover {
+        background-color: #005bb5;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .box {
+        background: #0073e6;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 1.2rem;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>📖 Spiegazione Completa del CSS Grid</h1>
+
+    <nav class="nav-links">
+      <a href="/index.html">index</a>
+      <a href="/05-layout/grid-layout-00.html">grid layout</a>
+    </nav>
+    <p>
+      CSS Grid è una tecnologia potente per creare layout flessibili e complessi
+      in modo semplice. In questa guida esploreremo i concetti principali.
+    </p>
+
+    <h2>🏗️ Definire una Griglia</h2>
+    <p>Per creare un contenitore grid, usiamo:</p>
+    <pre>display: grid;</pre>
+    <p>
+      Ciò trasforma un elemento in un contenitore grid, permettendo di definire
+      righe e colonne.
+    </p>
+
+    <h2>📌 grid-template-rows & grid-template-columns</h2>
+    <pre>
+grid-template-columns: 10rem 10rem;
+grid-template-rows: 10rem 10rem 10rem;</pre
+    >
+    <p>
+      Questo codice definisce una griglia con due colonne e tre righe, ognuna di
+      10rem di altezza.
+    </p>
+
+    <h2>🎯 Allineare gli Elementi</h2>
+    <pre>
+justify-items: center;
+align-items: center;</pre
+    >
+    <p>Centra gli elementi all'interno delle celle della griglia.</p>
+
+    <h2>🏗️ Allineare la Griglia nel Contenitore</h2>
+    <pre>
+justify-content: center;
+align-content: center;</pre
+    >
+    <p>Usato per centrare l'intera griglia nel suo contenitore.</p>
+
+    <h2>🔁 Usare repeat() per Generare Colonne e Righe</h2>
+    <pre>
+grid-template-columns: repeat(3, 5rem);
+grid-template-rows: repeat(3, 6.5rem);</pre
+    >
+    <p>Genera automaticamente più righe e colonne.</p>
+
+    <h2>📏 Utilizzare fr per Distribuire lo Spazio</h2>
+    <pre>grid-template: repeat(3, 10rem) / 10rem 30fr 70fr;</pre>
+    <p>Usiamo `fr` per distribuire lo spazio in modo flessibile.</p>
+
+    <h2>📌 auto per Occupare lo Spazio Disponibile</h2>
+    <pre>grid-template: 10rem auto 10rem / 30fr 70fr;</pre>
+    <p>La seconda riga occuperà tutto lo spazio disponibile.</p>
+
+    <h2>🔳 Posizionare Elementi Specifici</h2>
+    <pre>
+grid-column: 1 / span 3;
+grid-row: 2 / span 2;</pre
+    >
+    <p>Permette di controllare la posizione di un elemento.</p>
+
+    <h2>🏷️ Nominare le Aree della Griglia</h2>
+    <pre>
+grid-template-areas:
+  "header header"
+  "sidebar main"
+  ". footer";</pre
+    >
+    <p>Permette di definire aree leggibili per il layout.</p>
+
+    <h2>🎯 Esempio Pratico</h2>
+    <div class="container">
+      <div class="box">A</div>
+      <div class="box">B</div>
+      <div class="box">C</div>
+      <div class="box">D</div>
+    </div>
+  </body>
+</html>
