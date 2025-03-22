@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Queries</title>
+    <style>
+      /* GENERAL STYLING */
+      body {
+        margin: 1rem;
+        background-color: #242424;
+        color: whitesmoke;
+        font-family: Arial, sans-serif;
+      }
+
+      hr {
+        border: 0.3rem solid #454545;
+        border-radius: 0.2rem;
+        margin: 1.5rem 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      div {
+        margin: 0.7rem;
+      }
+
+      ul,
+      ol {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      table {
+        width: 100%;
+        color: whitesmoke;
+        background-color: #454545;
+
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 2px solid #262424;
+        border-radius: 1rem;
+        margin-bottom: 1rem;
+
+        text-align: center;
+        font-family: Arial, sans-serif;
+
+        font-size: 1rem;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      table tbody {
+        background-color: #242424;
+      }
+
+      table tbody tr {
+        transition: background-color 0.3s ease;
+      }
+
+      table tbody tr:hover {
+        background-color: #343434;
+      }
+
+      td {
+        padding: 1rem;
+      }
+
+      tbody tr {
+        border: 0.2rem solid #262456;
+        border-left: 0;
+        border-right: 0;
+        border-collapse: collapse;
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+
+      .italic {
+        font-style: italic;
+      }
+
+      /* CODE BLOCK STYLE */
+      .code-example {
+        background-color: #000;
+        border: 1px solid #454545;
+        border-radius: 0.3rem;
+        padding: 1rem;
+        font-family: monospace;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        overflow-x: auto;
+      }
+
+      /* NAVBAR STYLING */
+      .navbar {
+        background-color: #111;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+      }
+
+      .navbar ul {
+        display: flex;
+        gap: 1rem;
+        margin: 0;
+      }
+
+      .navbar a {
+        text-decoration: none;
+        color: whitesmoke;
+        padding: 0.5rem 1rem;
+        transition: 0.3s;
+      }
+
+      .navbar a:hover {
+        background-color: #333;
+        border-radius: 5px;
+      }
+
+      /* BURGER MENU */
+      .burger {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+      }
+
+      .mobile-nav {
+        display: none;
+        flex-direction: column;
+        background-color: #111;
+        padding: 1rem;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+      }
+
+      .mobile-nav a {
+        padding: 0.5rem;
+        text-align: center;
+        color: whitesmoke;
+        display: block;
+      }
+
+      /* MEDIA QUERY: MAKE NAVBAR RESPONSIVE */
+      @media (max-width: 768px) {
+        .navbar ul {
+          display: none;
+        }
+
+        .burger {
+          display: block;
+        }
+
+        .mobile-nav.show {
+          display: flex;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <a href="#">Media Queries</a>
+      <div class="burger">☰</div>
+      <ul>
+        <li><a href="/index.html">index</a></li>
+        <li>
+          <a href="/05-layout/media-queries-exercise-00.html"
+            >media-queries-exercise</a
+          >
+        </li>
+        <li>
+          <a href="/05-layout/flexbox-grid-exercise01.html"
+            >flexbox-grid-exercise</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <div class="mobile-nav">
+      <a href="/index.html">Index</a>
+      <a href="/05-layout/media-queries-exercise-00.html"
+        >media-queries-exercise</a
+      >
+      <a href="/05-layout/flexbox-grid-exercise01.html"
+        >flexbox-grid-exercise</a
+      >
+    </div>
+
+    <h1>📱 CSS Media Queries - Complete Lesson</h1>
+
+    <h2>What Are Media Queries?</h2>
+    <p>
+      CSS Media Queries allow you to apply different styles depending on the
+      device’s screen size, resolution, or other properties. This is essential
+      for responsive design, making websites look good on mobile, tablet, and
+      desktop.
+    </p>
+
+    <h2>🎯 Syntax of a Media Query</h2>
+    <ol>
+      <li>The <span class="bold">@media</span> rule.</li>
+      <li>A condition (e.g., screen width).</li>
+      <li>
+        CSS rules that apply
+        <span class="bold">only when the condition is met.</span>
+      </li>
+    </ol>
+
+    <div class="code-example">
+      @media (max-width: 768px) { body { background-color: lightblue; } }
+    </div>
+
+    <p>
+      ✅ If the screen width is <span class="bold">768px or smaller</span>, the
+      background turns <span class="bold">light blue.</span>
+    </p>
+
+    <hr />
+
+    <h2>📏 Common Breakpoints (Industry Standard)</h2>
+    <p>These breakpoints cover the most common screen sizes:</p>
+    <div class="code-example">
+      /* Extra small devices (phones) */ @media (max-width: 576px) { ... } /*
+      Small devices (large phones) */ @media (min-width: 577px) and (max-width:
+      768px) { ... } /* Medium devices (tablets) */ @media (min-width: 769px)
+      and (max-width: 992px) { ... } /* Large devices (laptops/desktops) */
+      @media (min-width: 993px) and (max-width: 1200px) { ... } /* Extra large
+      devices (large screens) */ @media (min-width: 1201px) { ... }
+    </div>
+
+    <hr />
+
+    <h3>🎯 Best Practices for Media Queries</h3>
+    <ul>
+      <li>✔ Use em or rem for font sizes (better for accessibility).</li>
+      <li>✔ Start with a "mobile-first" approach (min-width queries).</li>
+      <li>✔ Use relative units (%, vh, vw) instead of fixed values (px).</li>
+      <li>✔ Don’t overuse breakpoints—use them only when the design breaks.</li>
+    </ul>
+
+    <h3>🤝 Can We Combine Flexbox and Grid?</h3>
+    <p>
+      Yes! Flexbox and Grid can be used together, and it's actually quite common
+      in real-world projects.
+    </p>
+
+    <h2>💡 When to Use Each One?</h2>
+    <table>
+      <thead>
+        <tr>
+          <td>Feature</td>
+          <td>Flexbox</td>
+          <td>Grid</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Best for</td>
+          <td>1D layouts (row or column)</td>
+          <td>2D layouts (rows + columns)</td>
+        </tr>
+        <tr>
+          <td>Alignment</td>
+          <td>Great for centering and distributing space</td>
+          <td>Precise control over placement</td>
+        </tr>
+        <tr>
+          <td>Responsiveness</td>
+          <td>Adapts well to different content sizes</td>
+          <td>Defines strict layouts</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>🔹 Common Use Case:</h3>
+    <ul>
+      <li>
+        ✅ Use Grid to define the main layout (e.g., header, sidebar, content,
+        footer).
+      </li>
+      <li>
+        ✅ Use Flexbox inside grid items (e.g., for navigation bars, buttons, or
+        aligning content).
+      </li>
+    </ul>
+
+    <hr />
+
+    <h1>📌 Real-World Example: A</h1>
+
+    <p>
+      Classic Website Layout We'll build a simple website using Grid for the
+      structure and Flexbox for inner elements.
+    </p>
+
+    <h4>🔹 Structure:</h4>
+    <ul>
+      <li>1️⃣ Header (contains a flexbox navbar).</li>
+      <li>2️⃣ Sidebar & Main Content (structured using CSS Grid).</li>
+      <li>3️⃣ Footer (centered using Flexbox).</li>
+    </ul>
+    <script>
+      // BURGER MENU FUNCTIONALITY
+      document.querySelector(".burger").addEventListener("click", function () {
+        document.querySelector(".mobile-nav").classList.toggle("show");
+      });
+    </script>
+  </body>
+</html>

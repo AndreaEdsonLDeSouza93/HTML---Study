@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Queries Challenge</title>
+    <style>
+        /* GENERAL STYLES */
+        body {
+            font-size: 62.5%;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            color: hsl(240, 61%, 35%);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            font-size: 1.6rem;
+            color: hsl(240, 61%, 35%);
+        }
+
+        /* CARD CONTAINER */
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            padding: 2rem;
+        }
+
+        .card {
+            width: 15rem;
+            height: 15rem;
+            border: 2px solid hsl(240, 61%, 35%);
+            border-radius: 2rem;
+            background-color: hsl(230, 50%, 67%);
+            color: hsl(240, 61%, 35%);
+            font-size: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* MEDIA QUERIES */
+        @media (min-width: 1024px) {
+            /* Desktop: 3 cards per row */
+            .card {
+                width: calc((100% - 2rem) / 3); /* Divide into 3 columns */
+            }
+        }
+
+        @media (min-width: 600px) and (max-width: 1023px) {
+            /* Tablet: 2 cards per row */
+            .card {
+                width: calc((100% - 1rem) / 2); /* Divide into 2 columns */
+            }
+        }
+
+        @media (max-width: 599px) {
+            /* Mobile: 1 card per row */
+            .card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🔥 Challenge: Try It Yourself!</h1>
+    <ul>
+        <li>✅ 3 cards in a row on desktop.</li>
+        <li>✅ 2 cards in a row on tablets.</li>
+        <li>✅ 1 card per row on mobile.</li>
+        <li><a href="/05-layout/media-queries.html">Media Queries</a></li>
+    </ul>
+
+    <div class="cards-container">
+        <div class="card one">A</div>
+        <div class="card two">B</div>
+        <div class="card three">C</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid-Flexbox</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        overflow: hidden;
+      }
+
+      .container {
+        display: grid;
+        grid-template:
+          "header header" 80px
+          "sidebar content" 1fr
+          "footer footer" 70px
+          / 25fr 75fr;
+        height: 100vh;
+      }
+
+      header {
+        grid-area: header;
+        background: navy;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .navbar ul {
+        display: flex;
+        gap: 20px;
+      }
+
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        white-space: nowrap;
+      }
+
+      .navbar a:hover {
+        background-color: blue;
+      }
+
+      ul li {
+        list-style-type: none;
+      }
+
+      .sidebar {
+        grid-area: sidebar;
+        background-color: royalblue;
+        color: aliceblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .content {
+        grid-area: content;
+        background: lightseagreen;
+        display: flex;
+        justify-content: center;
+        margin: 1rem;
+        padding: 0.5rem;
+        box-sizing: border-box;
+      }
+
+      footer {
+        grid-area: footer;
+        background-color: darkblue;
+        color: wheat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (max-width: 768px) {
+        .text {
+          font-size: clamp(
+            1rem,
+            2vw,
+            2.5rem
+          ); /* Font size adjusts between 1rem and 2.5rem */
+        }
+
+        .container {
+          grid-template:
+            "header" 150px
+            "content" 1fr
+            "sidebar" 100px
+            "footer" 70px
+            / 1fr;
+        }
+
+        .sidebar {
+          display: flex;
+          justify-content: center; /* horizontal */
+          align-items: center; /* vertically */
+        }
+
+        .navbar ul {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- HEADER -->
+      <header>
+        <nav class="navbar">
+          <ul>
+            <li><a href="/index.html">Index</a></li>
+            <li><a href="/05-layout/media-queries.html">Media Queries</a></li>
+            <li><a href="/05-layout/flexbox.html">Flexbox</a></li>
+            <li><a href="/05-layout/grid-notes.html">Grid notes</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">Sidebar</aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="content">Main Content</main>
+
+      <!-- FOOTER -->
+      <footer>Footer</footer>
+    </div>
+  </body>
+</html>
