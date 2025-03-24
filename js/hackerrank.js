@@ -60,3 +60,31 @@ function plusMinus(arr) {
     console.log(ratio);
   });
 }
+
+/**
+ * This function generates a staircase pattern of `#` symbols.
+ * The staircase is right-aligned, with the number of rows determined by `n`.
+ * Each row contains a mix of spaces and `#`, where the `#` increases from top to bottom.
+ */
+function staircase(n) {
+  // Outer loop to iterate over each row of the staircase
+  for (let i = 0; i < n; i++) {
+      let symbol = ""; // Initialize an empty string for the current row
+
+      // Inner loop to construct each row character by character
+      for (let j = 0; j < n; j++) {
+          // Add a `#` if the current column index meets the condition
+          // Otherwise, add a space
+          if (n - 1 - i < j + 1) {
+              symbol += "#";
+          } else {
+              symbol += " "; 
+          }
+      }
+      
+      // Print the completed row
+      console.log(symbol);
+  }
+}
+
+
