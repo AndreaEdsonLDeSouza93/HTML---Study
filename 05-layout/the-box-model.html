@@ -1,96 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Box Model</title>
+    <base href="https://andreaedsonldesouza93.github.io/HTML---Study/" />
     <style>
-        .margin-area {
-            background-color: rgba(255, 255, 0, 0.5); /* Semi-transparent yellow for margin */
-            padding: 10px; /* Temporary padding to show visual distinction */
-        }
+      .margin-area {
+        background-color: rgba(
+          255,
+          255,
+          0,
+          0.5
+        ); /* Semi-transparent yellow for margin */
+        padding: 10px; /* Temporary padding to show visual distinction */
+      }
 
-        .box {
-            background-color: lightblue; /* Content area */
-            border: 10px solid orange;
-            padding: 20px;
-        }
+      .box {
+        background-color: lightblue; /* Content area */
+        border: 10px solid orange;
+        padding: 20px;
+      }
 
-        .content {
-            background-color: green;
-            color: #fff; /* Content text color */
-            padding: 10px;
-        }
+      .content {
+        background-color: green;
+        color: #fff; /* Content text color */
+        padding: 10px;
+      }
 
-        .yellow{
-            background-color: yellow;
-            color: black;
-        }
-        .orange {
-            background-color: orange;
-            color: #000;
-        }
-        .lightblue {
-            background-color: lightblue;
-            color: #000;
-        }
-        .solid.green {
-            background-color: green;
-            color: whitesmoke;
-        }
+      .yellow {
+        background-color: yellow;
+        color: black;
+      }
+      .orange {
+        background-color: orange;
+        color: #000;
+      }
+      .lightblue {
+        background-color: lightblue;
+        color: #000;
+      }
+      .solid.green {
+        background-color: green;
+        color: whitesmoke;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>The Box Model</h1>
 
-    <a href="/index.html" style="display: block;">Index</a>
+    <a href="index.html" style="display: block">Index</a>
 
-    <p>Use the inputs below to dynamically adjust the box model properties and see the visual areas of margin, border, padding, and content.</p>
+    <p>
+      Use the inputs below to dynamically adjust the box model properties and
+      see the visual areas of margin, border, padding, and content.
+    </p>
 
     <label for="marginInput">Margin:</label>
-    <input type="number" id="marginInput" value="20" /> px<br/>
+    <input type="number" id="marginInput" value="20" /> px<br />
 
     <label for="borderInput">Border:</label>
-    <input type="number" id="borderInput" value="10" /> px<br/>
+    <input type="number" id="borderInput" value="10" /> px<br />
 
     <label for="paddingInput">Padding:</label>
-    <input type="number" id="paddingInput" value="20" /> px<br/>
+    <input type="number" id="paddingInput" value="20" /> px<br />
 
     <h2>Box Model Explanation</h2>
     <ul>
-        <li><strong class="yellow">Margin:</strong> The space between the element and surrounding elements or edges. It determines external spacing.</li>
-        <li><strong class="orange">Border:</strong> The visible line around the element, separating padding and margin.</li>
-        <li><strong class="lightblue">Padding:</strong> The inner space between the content and the border.</li>
-        <li><strong class="solid green">Content:</strong> The actual content area of the box.</li>
+      <li>
+        <strong class="yellow">Margin:</strong> The space between the element
+        and surrounding elements or edges. It determines external spacing.
+      </li>
+      <li>
+        <strong class="orange">Border:</strong> The visible line around the
+        element, separating padding and margin.
+      </li>
+      <li>
+        <strong class="lightblue">Padding:</strong> The inner space between the
+        content and the border.
+      </li>
+      <li>
+        <strong class="solid green">Content:</strong> The actual content area of
+        the box.
+      </li>
     </ul>
 
     <div class="margin-area">
-        <div class="box">
-            <div class="content">This is the content area.</div>
-        </div>
+      <div class="box">
+        <div class="content">This is the content area.</div>
+      </div>
     </div>
-   
+
     <script>
-        const marginInput = document.getElementById('marginInput');
-        const borderInput = document.getElementById('borderInput');
-        const paddingInput = document.getElementById('paddingInput');
-        const marginArea = document.querySelector('.margin-area');
-        const box = document.querySelector('.box');
+      const marginInput = document.getElementById("marginInput");
+      const borderInput = document.getElementById("borderInput");
+      const paddingInput = document.getElementById("paddingInput");
+      const marginArea = document.querySelector(".margin-area");
+      const box = document.querySelector(".box");
 
-        // Update margin dynamically
-        marginInput.addEventListener('input', () => {
-            marginArea.style.padding = `${marginInput.value}px`;
-        });
+      // Update margin dynamically
+      marginInput.addEventListener("input", () => {
+        marginArea.style.padding = `${marginInput.value}px`;
+      });
 
-        // Update border width dynamically
-        borderInput.addEventListener('input', () => {
-            box.style.borderWidth = `${borderInput.value}px`;
-        });
+      // Update border width dynamically
+      borderInput.addEventListener("input", () => {
+        box.style.borderWidth = `${borderInput.value}px`;
+      });
 
-        // Update padding dynamically
-        paddingInput.addEventListener('input', () => {
-            box.style.padding = `${paddingInput.value}px`;
-        });
+      // Update padding dynamically
+      paddingInput.addEventListener("input", () => {
+        box.style.padding = `${paddingInput.value}px`;
+      });
     </script>
-</body>
+  </body>
 </html>
