@@ -1,4 +1,43 @@
+/* Images */
 img {
-    max-width: 8rem;
-    object-fit: cover;
+  max-width: 15rem;
+  object-fit: cover;
+  border-radius: 0.3rem;
+}
+
+/* Table CSS style */
+table {
+  border-collapse: collapse;
+  border: 2px 0 solid #555;
+  display: block; /* Ensures it's a block container */
+  text-align: center; /* Centers inline-block children */
+  width: fit-content;
+}
+
+thead {
+  background-color: hsl(0, 0%, 75%);
+}
+
+td {
+  padding: 1rem;
+  text-align: center; /* Center-aligns content in each cell */
+  vertical-align: middle; /* Ensures vertical alignment */
+  border: 1px solid #555; /* Adds a border to cells */
+}
+
+/* Yellow Circles */
+.dot {
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: hsl(62, 91%, 51%);
+  border-radius: 50%; /* Ensures the circles stay circular */
+  display: inline-block; /* Keeps them behaving properly */
+  margin: 0 auto; /* Centers horizontally inside the cell */
+}
+
+.containter-background-image {
+  max-width: 20rem;
+  height: auto;
+  object-fit: cover;
+  background-image: url("Multimedia/images-lessons/bg-paper.jpg");
 }

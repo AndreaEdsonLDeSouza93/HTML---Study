@@ -25,6 +25,90 @@
       <strong>vector</strong> images for simple graphics, icons, logos and so on
     </p>
 
-    <img src="Multimedia/ruster.jpg" alt="forest">
+    <h3>Raster Image</h3>
+    <img src="Multimedia/ruster.jpg" alt="forest" />
+    <ul>
+      <li>
+        Come from cameras/scanners (but they can be also produces by software)
+      </li>
+      <li>Formats: JPG, PNG, GIF, etc</li>
+      <li>More pixels === larger file size</li>
+      <li>Look blurry if scaled up</li>
+    </ul>
+
+    <h3>Vector Image</h3>
+    <img src="Multimedia/vector.svg" alt="vector image" />
+
+    <ul>
+      <li>Created in software (Adobe Illustrator)</li>
+      <li>Format: SVG</li>
+      <li>Scalable Vector Graphics</li>
+      <li>Look sharp at any size</li>
+      <li>
+        They are "not made of pixels", they are defines by
+        <strong>Matetichal vectors</strong>.
+      </li>
+    </ul>
+
+    <table>
+      <thead>
+        <tr>
+          <td></td>
+          <td>Colors</td>
+          <td>Transparency</td>
+          <td>Animation</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>JPEG</td>
+          <td>16M</td>
+          <td></td>
+          <!-- Empty cell for Transparency -->
+          <td></td>
+          <!-- Empty cell for Animation -->
+        </tr>
+        <tr>
+          <td>GIF</td>
+          <td>256</td>
+          <td><div class="dot"></div></td>
+          <td><div class="dot"></div></td>
+        </tr>
+        <tr>
+          <td>PNG</td>
+          <td>16M</td>
+          <td><div class="dot"></div></td>
+          <td><div class="dot"></div></td>
+        </tr>
+        <tr>
+          <td>WebP</td>
+          <td>16M</td>
+          <td><div class="dot"></div></td>
+          <td><dit class="dot"></dit></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Content Images</h2>
+
+    <p>
+      <span style="text-decoration: underline">alt attribute</span> is for
+      screen readers. Ruster images they don't scale very well.
+    </p>
+    <img
+      src="Multimedia/images-lessons/meal-cropped.jpg"
+      alt="A bowl of salmo"
+    />
+
+    <p>
+      A decorative image so we can leave the
+      <span style="text-decoration: underline">alt</span> attribute empty: =>
+      <span style="text-decoration: underline">alt=""</span>
+    </p>
+    <img src="Multimedia/images-lessons/line.jpg" alt="" />
+
+    <h2>Background Images</h2>
+
+    <div class="containter-background-image"></div>
   </body>
 </html>
