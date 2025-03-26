@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formatting Text</title>
-    <style></style>
+    <base href="https://andreaedsonldesouza93.github.io/HTML---Study/" />
   </head>
   <body>
     <h1>Formatting Text</h1>
+
+    <a href="index.html">Index</a>
 
     <h2>Brief list</h2>
 
@@ -34,7 +36,7 @@
             }
         </code>
 
-        <p style="text-align: right;">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, dolore.</p>
+        <p id="text-align" style="text-align: right;">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, dolore.</p>
 
         <h3>Text Indent</h3>
         <p>Adding indentation of the first line of our text</p>
@@ -44,7 +46,67 @@
         }
         </code>
 
-        <p style="text-indent: 2rem;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, tempora!</p>
-    </pre>
+        <p id="text-indent" style="text-indent: 2rem;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, tempora!</p>
+    
+        <h3>Text Decoration</h3>
+        <code>
+          /* p + p => target the next paragraph (relational selector) */
+          p + p {
+            text-decoration: underline;
+            text-decoration: line-through;
+          }
+        </code>
+
+        <p id="text-decoration" style="text-decoration: underline;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore, placeat.</p>
+    
+        <h3>Text Transform</h3>
+        <code>
+          p {
+            taxt-transform: lowercase;
+            text-transform: uppercase;
+            text-transform: capitalize;
+          }
+        </code>
+    
+        <p style="text-transform: capitalize;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, cumque?</p>
+      
+        <h3>White Space</h3>
+        <code>
+          p {
+            width: 50ch;
+            white-space: nowrap;
+            border: 0.3rem solid black
+            overflow: hidden;
+            text-overflow: ellipsis; /*...*/
+            line-clamp: 3;
+          }
+        </code>
+
+        <p style="white-space: nowrap; text-overflow: ellipsis;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure, numquam!</p>
+      
+        <h3>Column Count</h3>
+        <code>
+          p {
+            width: 50ch;
+            column-count: 2;
+            column-gap: 1.5rem;
+            column-rule: 0.3rem dotter #333;
+          }
+        </code>
+
+        <p style="width: 50ch; column-count: 2; column-rule: 3px dotted #333;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione, a. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis vel suscipit delectus. Earum qui maiores eveniet officia repudiandae odio laudantium iusto ratione. Numquam qui laborum excepturi culpa laudantium ea animi dolorum est? Officia, magni exercitationem impedit corrupti optio fugiat error?</p>
+
+        <h3>Direction</h3>
+        <code>
+          p {
+            width: 50ch;
+            direction: rtl;
+          }
+        </code>
+
+        <p style="direction: rtl;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, iste.</p>
+      </pre>
+
+    <style></style>
   </body>
 </html>

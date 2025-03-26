@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Embedding Fonts</title>
+    <base href="https://andreaedsonldesouza93.github.io/HTML---Study/" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 62.5%;
+        line-height: 1.5; /* if the font-size is 1rem, line-height would look nice at 1.5rem */
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+      /* Improved styling for h1 and h3 */
+      h1,
+      h3,
+      h4 {
+        color: #f4f4f4; /* Maintain light text for readability on dark background */
+        background-color: #222; /* Keep the dark theme */
+        margin: 1rem; /* Consistent spacing */
+        padding: 1.2rem; /* Slightly increased padding for better balance */
+        width: fit-content;
+        border-radius: 0.5rem; /* Slightly smaller rounded corners for a subtle modern look */
+        border: 0.1rem solid #6c757d; /* Fixed border syntax and increased size for clarity */
+        box-shadow: 0.4rem 0.4rem 0.2rem hsla(0, 0%, 0%, 0.6); /* Refined shadow for depth */
+        transition: all 0.3s ease-in-out; /* Smooth transition effect for hover */
+      }
+
+      /* Enhanced hover effects for h1 and h3 */
+      h1:hover,
+      h3:hover,
+      h4:hover {
+        transform: translateY(
+          -0.3rem
+        ); /* Intuitive hover movement (Y-axis translation) */
+        box-shadow: 0.7rem 0.7rem 0.3rem hsla(0, 0%, 0%, 0.3); /* More pronounced hover shadow */
+        background-color: #333; /* Slightly lighter background on hover for subtle change */
+        color: #e6e6e6; /* Adjusted text color for hover */
+      }
+
+      a {
+        display: flex;
+        flex-direction: row;
+        margin: 1rem;
+        text-decoration: none;
+        color: #007bff;
+      }
+
+      ul {
+        list-style: none; /* Remove bullet points */
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .horizontal {
+        display: flex; /* Apply flexbox to the parent list */
+        flex-direction: row; /* Arrange items horizontally */
+        padding: 0; /* Remove padding */
+        margin: 0 auto; /* Center the list horizontally */
+      }
+
+      .horizontal li {
+        margin: 0 1rem; /* Add horizontal spacing between list items */
+      }
+
+      .horizontal li a {
+        text-decoration: none; /* Remove underline from links */
+        color: #007bff; /* Set the link color */
+        transition: color 0.3s ease; /* Smooth transition for hover effect */
+      }
+
+      .horizontal li a:hover {
+        color: #0056b3; /* Change color when hovering */
+        text-decoration: underline;
+      }
+
+      p {
+        margin: 1rem auto;
+        width: 90%;
+        max-width: 800px;
+        text-align: justify;
+      }
+
+      .example {
+        background: #e9ecef;
+        padding: 1rem;
+        margin: 1rem auto;
+        width: 90%;
+        border-left: 5px solid #6c757d;
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Embedding Fonts</h1>
+
+    <a href="index.html">Go Back to Index</a>
+
+    <h3>Web Safe Fonts</h3>
+    <ul>
+      <li>Arial</li>
+      <li>Helvetica</li>
+      <li>Georgia</li>
+      <li>Times New Roman</li>
+    </ul>
+
+    <h3>Where to Find Fonts</h3>
+    <ul class="horizontal">
+      <li>
+        <a href="https://fontsquirrel.com" target="_blank">Font Squirrel</a>
+      </li>
+      <li><a href="https://fonts.com" target="_blank">Fonts.com</a></li>
+      <li><a href="https://myfonts.com" target="_blank">MyFonts.com</a></li>
+    </ul>
+
+    <h3>Font Formats</h3>
+    <ul>
+      <li>TTF (TrueType Font)</li>
+      <li>OTF (OpenType Font)</li>
+      <li>EOT (Embedded OpenType)</li>
+      <li>WOFF (Web Open Font Format)</li>
+      <li>WOFF 2.0 (Latest Version of Web Open Font Format)</li>
+    </ul>
+
+    <p>
+      <strong>WOFF</strong> and <strong>WOFF 2.0</strong> are highly recommended
+      for web development due to their compatibility and performance.
+    </p>
+
+    <h3>Flash of Unstyled Text (FOUT)</h3>
+    <p>
+      This occurs when custom fonts take time to load, causing the browser to
+      display default web-safe fonts temporarily. To avoid this, use techniques
+      like font-display settings in CSS or preload key font files.
+    </p>
+
+    <div class="example">
+      Example CSS for Font Display:
+      <code>
+        @font-face { font-family: 'CustomFont'; src: url('custom-font.woff2')
+        format('woff2'); font-display: swap; }
+      </code>
+    </div>
+
+    <h3>Font Services</h3>
+
+    <h4>Free Fonts</h4>
+    <p>Google Web Fonts (fonts.google.com)</p>
+
+    <h4>Paid Fonts</h4>
+
+    <ul>
+      <li>Adobe Fonts (fonts.adobe.com)</li>
+      <li>fonts.com</li>
+      <li>fontdeck.com</li>
+    </ul>
+
+    <h3>Vertical Spacing</h3>
+    <ul>
+      <li>margin</li>
+      <li>line-height</li>
+    </ul>
+
+    <h4>Law of Proximity</h4>
+    <p>Objects that are closer are perceived to be related</p>
+    <hr>
+    <p style="font-size: 1rem; line-height: 3rem;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe modi unde voluptas itaque, laboriosam velit neque facere eum dolor at.</p>
+    <p style="font-size: 1rem; line-height: 3rem;">Mollitia quod repellendus libero ea porro. Esse corporis quae aliquam commodi alias tempore accusantium sint eum nulla sunt? Enim, eaque.</p>
+    <p style="font-size: 1rem; line-height: 3rem;">Sed, nihil eius esse laboriosam quas ex officia. Consequatur totam, autem porro ut ipsam accusantium eos praesentium exercitationem blanditiis neque.</p>
+  
+
+    <h3>Horizontal Spacing</h3>
+
+    <ul>
+        <li>letter-spacing</li>
+        <li>word-spacing</li>
+        <li>width</li>
+    </ul>
+
+    <h4>Letter Spacing</h4>
+    <p style="letter-spacing: 0.4rem;">Lorem ipsum dolor sit amet consctetur adipisicing elit. Animi, unde?</p>
+    <p style="letter-spacing: -0.01rem;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, velit.</p>
+
+    <h4>Word Spacing</h4>
+    <p style="word-spacing: 1rem;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime, impedit!</p>
+
+    <h4>Ideal Line Length</h4>
+    <p style="text-transform: capitalize;"><mark>the idela line length is between 50 - 70 characters</mark></p>
+
+    <hr>
+    <pre>
+        <code>
+            p {
+                witdh: 50ch; /* 50 ch equals 50 zeroes -- more or less 60 to 70 charset */
+            }
+        </code>
+    </pre>
+    <hr>
+    <p style="width: 50ch;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas odit atque, assumenda nesciunt eum blanditiis! Vel quia ut ratione, cum porro minima aut perferendis inventore facilis officiis necessitatibus officia soluta vitae velit nobis amet at? Corporis, suscipit tenetur! Sed dolorem delectus natus accusamus numquam nihil officiis reprehenderit debitis harum aut. Ratione, rem accusamus quaerat asperiores nesciunt quos quo commodi iure doloribus magnam recusandae nobis hic? Excepturi iure iusto qui iste quae eveniet, perferendis, odit ratione eos voluptatem quis ad eligendi consequatur eaque officiis quas aperiam vero repudiandae tempore quibusdam possimus. Nihil excepturi sequi vero dolor eveniet labore perferendis fugit eius, quam ipsum quo nemo tempore natus quos ratione temporibus soluta nam ullam atque aliquid! Mollitia provident quidem sed quam, reiciendis temporibus impedit saepe alias, libero incidunt, distinctio hic natus obcaecati ipsam amet illo recusandae quasi? Cum, magni ratione. At earum in magnam eum? Asperiores ipsum pariatur qui repellat quod error veritatis assumenda quia distinctio dolores, vel reiciendis suscipit! Possimus magnam facere voluptatibus exercitationem quibusdam veniam? Voluptates, quasi excepturi, amet perferendis, architecto dolorem dicta est suscipit enim inventore harum vel sit in provident placeat eum quam exercitationem fugiat nam quia blanditiis culpa rerum sapiente corporis. Quis in nulla eveniet amet quasi.</p>
+</body>
+</html>

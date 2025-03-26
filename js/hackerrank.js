@@ -87,4 +87,31 @@ function staircase(n) {
   }
 }
 
+/**
+ * This function calculates the minimum and maximum sums that can be obtained
+ * by summing four out of five integers in an array.
+ * It returns a string with the two sums separated by a space.
+ *
+ * Example:
+ * Input: [3, 1, 5, 7, 9]
+ * Output: "16 24"
+ */
+function miniMaxSum(arr) {
+  let min = Infinity;
+  let max = -Infinity;
+  let sum = 0;
+  
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+    
+    if (min > arr[i]) min = arr[i];
+    if (arr[i] > max) max = arr[i];
+  }
+  
+  const maxSum = sum - min;
+  const minSum = sum - max;
+  
+  return minSum + " " + maxSum;
+}
+
 
