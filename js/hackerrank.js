@@ -114,4 +114,26 @@ function miniMaxSum(arr) {
   return minSum + " " + maxSum;
 }
 
+/**
+ * This function calculates how many candles on a birthday cake are the tallest.
+ * It iterates through the `candles` array to find the maximum height, and then
+ * counts how many candles have that height.
+ */
+function birthdayCakeCandles(candles) {
+  let max = -Infinity; // Initialize max to the lowest possible value.
+  let counter = 0;     // Counter to keep track of the tallest candles.
+
+  candles.forEach(candle => {
+      if (candle > max) {
+          max = candle;    // Update max when a taller candle is found.
+          counter = 1;     // Reset counter since a new max is found.
+      } else if (max === candle) {
+          counter++;       // Increment counter for each occurrence of the max height.
+      }
+  });
+
+  return counter;
+}
+
+
 
