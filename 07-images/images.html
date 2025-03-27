@@ -10,7 +10,10 @@
   <body>
     <h1>Images</h1>
 
-    <a href="index">Index</a>
+    <ul>
+      <li><a href="index">Index</a></li>
+      <li><a href="07-images/css-sprites.html">css sprites</a></li>
+    </ul>
 
     <h2 style="text-transform: capitalize">images types and fonts</h2>
 
@@ -109,6 +112,63 @@
 
     <h2>Background Images</h2>
 
-    <div class="containter-background-image"></div>
+    <div class="container-background-image"></div>
+
+    <pre>
+      <code>
+      body {
+        background-image: url("https://andreaedsonldesouza93.github.io/HTML---Study/Multimedia/images-lessons/bg-paper.jpg");
+        
+        background-repeat: repeat-x; /* it repeats the background horizontally */
+        background-repeat: repeat-y; /* it repeats the background vertically */
+        
+        background-repeat: no-repeat;
+
+        background-position: 10rem 10rem; /* 10rem to the right, 10rem down */
+        background-position: -10rem -10rem; /* left, up */
+        background-position: 100% 20rem(it takes all the width of the entire container)
+
+        background-size: 20rem 20rem;
+      }
+      </code>
+    </pre>
+    <p>
+      <strong><mark>block level elements</mark></strong> have by default 0
+      (height), and they strech only as much as it is needed, to container the
+      elements.
+    </p>
+    <p><strong>body tag</strong> is a block level element.</p>
+    <p>
+      For example, if we set the container's height to 20vh (with display set to
+      block) and then set the height to 100%, it will completely fill the
+      container.
+    </p>
+    <div class="container" style="height: 20vh">
+      <div
+        class="box"
+        style="height: 100%; width: 100; background-color: cornflowerblue"
+      ></div>
+    </div>
+
+    <pre>
+      <code>
+        body {
+          background: url(../etc..);
+          background-repeat: no-repeat;
+          background-size: cover; /* cover all the background while keeping the aspect ratio. */
+          height: 100vh;
+        }
+      </code>
+    </pre>
+
+    <p>
+      <span style="text-decoration: underline"
+        >background-attachment: fixed; height: 300vh;</span
+      >
+    </p>
+    <p>
+      This will ensure that the background remains fixed, even as you scroll
+      extensively.
+    </p>
   </body>
 </html>

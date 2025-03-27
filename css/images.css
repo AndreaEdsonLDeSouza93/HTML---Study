@@ -35,9 +35,13 @@ td {
   margin: 0 auto; /* Centers horizontally inside the cell */
 }
 
-.containter-background-image {
+.container-background-image {
   max-width: 20rem;
-  height: auto;
+  height: 20rem;
   object-fit: cover;
-  background-image: url("Multimedia/images-lessons/bg-paper.jpg");
+  background-image: url("https://andreaedsonldesouza93.github.io/HTML---Study/Multimedia/images-lessons/bg-paper.jpg");
+  
+  background-repeat: repeat-x;
+  background-repeat: repeat-y;
+  background-repeat: no-repeat;
 }

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Sprites</title>
+    <base href="https://andreaedsonldesouza93.github.io/HTML---Study/" />
+    <style>
+      h2 {
+        padding: 0.7rem;
+        background-color: hsla(52, 87%, 47%, 0.942);
+        border-radius: 0.5rem;
+        width: fit-content;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Sprites</h1>
+
+    <ul>
+      <li><a href="index.html">Index</a></li>
+      <li><a href="07-images/images.html">Previous page</a></li>
+    </ul>
+
+    <h2>PROBLEMS</h2>
+    <ul>
+      <li>
+        <b>File Size Can Get Too Large:</b> Large sprite files can negatively
+        impact performance, especially when they include many high-resolution
+        images. This results in slower page loading and may deter users,
+        particularly on mobile devices or slower networks.
+      </li>
+      <li>
+        <b>Sprites Are Not Flexible:</b> Sprites work well for static designs
+        but become less practical for responsive layouts. Adjusting individual
+        images or resizing them for different screen resolutions often requires
+        creating new sprites altogether, which adds complexity.
+      </li>
+      <li>
+        <b>Maintenance and Recombination Overhead:</b> When you need to modify,
+        add, or remove an image in a sprite sheet, you'll have to rebuild the
+        entire sprite. This involves reorganizing the images in the sprite,
+        updating your CSS with the correct coordinates, and ensuring everything
+        remains pixel-perfect. This process can be time-consuming and prone to
+        errors, especially for large sprite sheets.
+      </li>
+    </ul>
+
+    <h3>Images one by one by one</h3>
+    <img src="/Multimedia/images-lessons/dishes.png" alt="" />
+    <img src="/Multimedia/images-lessons/landing.png" alt="" />
+    <img src="/Multimedia/images-lessons/rocketship.png" alt="" />
+    <img src="/Multimedia/images-lessons/saturn.png" alt="" />
+    <img src="/Multimedia/images-lessons/ufo.png" alt="" />
+  </body>
+</html>
