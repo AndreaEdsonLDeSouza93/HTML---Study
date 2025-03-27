@@ -5,24 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSS Sprites</title>
     <base href="https://andreaedsonldesouza93.github.io/HTML---Study/" />
+    <!-- Inline CSS for h2 styling -->
     <style>
       h2 {
         padding: 0.7rem;
         background-color: hsla(52, 87%, 47%, 0.942);
         border-radius: 0.5rem;
         width: fit-content;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
     </style>
+    <!-- External CSS file -->
+    <link
+      rel="stylesheet"
+      href="Multimedia/CSS-Sprite-Package/css-sprites.css"
+    />
   </head>
   <body>
+    <!-- Header -->
     <h1>CSS Sprites</h1>
-
+    <!-- Navigation -->
     <ul>
       <li><a href="index.html">Index</a></li>
       <li><a href="07-images/images.html">Previous page</a></li>
     </ul>
-
+    <!-- Problems Section -->
     <h2>PROBLEMS</h2>
     <ul>
       <li>
@@ -46,12 +53,28 @@
         errors, especially for large sprite sheets.
       </li>
     </ul>
+    <!-- Images Section -->
+    <h3>Images One by One</h3>
+    <p><strong>Five images</strong> === <strong>Five HTTP requests</strong></p>
+    <div>
+      <img src="Multimedia/images-lessons/dishes.png" alt="Dishes" />
+      <img src="Multimedia/images-lessons/landing.png" alt="Landing" />
+      <img src="Multimedia/images-lessons/rocketship.png" alt="Rocketship" />
+      <img src="Multimedia/images-lessons/saturn.png" alt="Saturn" />
+      <img src="Multimedia/images-lessons/ufo.png" alt="UFO" />
+    </div>
+    <!-- CSS Sprites Section -->
+    <h3>CSS Sprites</h3>
+    <p>Combine all the images into a single image!</p>
+    <p>Then use that image to display the five images.</p>
+    <p><mark>With Only 1 HTTP request!</mark></p>
+    <!-- External Tool Link -->
+    <a href="https://www.cssspritestool.com/" target="_blank"
+      >CSS Sprite Generator</a
+    >
 
-    <h3>Images one by one by one</h3>
-    <img src="/Multimedia/images-lessons/dishes.png" alt="" />
-    <img src="/Multimedia/images-lessons/landing.png" alt="" />
-    <img src="/Multimedia/images-lessons/rocketship.png" alt="" />
-    <img src="/Multimedia/images-lessons/saturn.png" alt="" />
-    <img src="/Multimedia/images-lessons/ufo.png" alt="" />
+    <div>
+        <span class="bg-dishes"></span>
+    </div>
   </body>
 </html>
