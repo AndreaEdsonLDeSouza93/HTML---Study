@@ -40,8 +40,25 @@ td {
   height: 20rem;
   object-fit: cover;
   background-image: url("https://andreaedsonldesouza93.github.io/HTML---Study/Multimedia/images-lessons/bg-paper.jpg");
-  
+
   background-repeat: repeat-x;
   background-repeat: repeat-y;
   background-repeat: no-repeat;
+}
+
+.clippy {
+  clip-path: polygon(
+    10% 25%,
+    35% 25%,
+    35% 0%,
+    65% 0%,
+    65% 25%,
+    90% 25%,
+    90% 50%,
+    65% 50%,
+    65% 100%,
+    35% 100%,
+    35% 50%,
+    10% 50%
+  );
 }
