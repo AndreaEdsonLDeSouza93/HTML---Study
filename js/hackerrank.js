@@ -135,5 +135,26 @@ function birthdayCakeCandles(candles) {
   return counter;
 }
 
+function timeConversion(s) {
+  // Extract the AM/PM part and the time without it
+  const AM_OR_PM = s.slice(-2);
+  const [hours, minutes, seconds] = s.slice(0, -2).split(":");
+
+  // Handle AM and PM cases
+  if (AM_OR_PM === 'AM') {
+      return hours === '12' 
+          ? `00:${minutes}:${seconds}` 
+          : `${hours}:${minutes}:${seconds}`;
+  } else {
+      return hours === '12' 
+          ? `12:${minutes}:${seconds}` 
+          : `${Number(hours) + 12}:${minutes}:${seconds}`;
+  }
+}
+
+// Test cases
+//console.log(timeConversion('12:01:00PM')); // '12:01:00'
+//console.log(timeConversion('12:00:00AM')); // '00:00:00'
+//console.log(timeConversion('07:05:45PM')); // '19:05:45'
 
 

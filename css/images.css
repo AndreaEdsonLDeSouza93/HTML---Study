@@ -62,3 +62,11 @@ td {
     10% 50%
   );
 }
+
+.container-background-svg {
+  height: auto;
+  width: 60vw;
+  border-radius: 1.5rem;
+  border: 1px solid hsl(240, 100%, 19%);
+  background: url(Multimedia/contour-line.svg);
+}

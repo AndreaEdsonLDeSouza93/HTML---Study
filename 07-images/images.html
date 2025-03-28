@@ -273,5 +273,125 @@
       style="display: block"
       >Mozilla Filters Docs</a
     >
+
+    <h2>Supporting High Definition Devices</h2>
+
+    <img
+      src="/Multimedia/images-lessons/meal.jpg"
+      alt="A bowl of salmon and curry"
+      class="meal"
+      srcset="
+        Multimedia/images-lessons/meal.jpg    1x,
+        Multimedia/images-lessons/meal@2x.jpg 2x,
+        Multimedia/images-lessons/meal@3x.jpg 3x
+      "
+    />
+
+    <pre>
+      <code>
+        src="/Multimedia/images-lessons/meal.jpg"
+        alt="A bowl of salmon and curry"
+        class="meal"
+        srcset="
+        Multimedia/images-lessons/meal.jpg    1x,
+        Multimedia/images-lessons/meal@2x.jpg 2x,
+        Multimedia/images-lessons/meal@3x.jpg 3x
+      "
+      </code>
+    </pre>
+
+    <h2>Resolution Switching</h2>
+
+    <img
+      src="/Multimedia/images-lessons/meal.jpg"
+      alt="A bowl of salmon and curry"
+      srcset="
+        Multimedia/images-lessons/meal.jpg     400w,
+        Multimedia/images-lessons/meal@2x.jpg  800w,
+        Multimedia/images-lessons/meal@3x.jpg 1200w
+      "
+      sizes="
+        (max-width:48rem) 100vw,
+        (max-width: 65rem) 50vW,
+        33vw
+      "
+    />
+
+    <pre>
+      <code>
+        src="/Multimedia/images-lessons/meal.jpg"
+        alt="A bowl of salmon and curry"
+        class="meal"
+        srcset="
+          Multimedia/images-lessons/meal.jpg     400w,
+          Multimedia/images-lessons/meal@2x.jpg  800w,
+          Multimedia/images-lessons/meal@3x.jpg 1200w
+      "
+
+      sizes="
+        (max-width:48rem) 100vw,
+        (max-width: 65rem) 50vW,
+        33vw
+      "
+
+      </code>
+    </pre>
+
+    <a
+      href="https://responsivebreakpoints.com/"
+      target="_blank"
+      style="display: block"
+      >Responsive Breakpoints</a
+    >
+
+    <h2 style="text-transform: capitalize">moder image formats</h2>
+
+    <h3 style="text-transform: uppercase">conversion to webp</h3>
+
+    <ul>
+      <li>Photoshop (WebPShop plug-in)</li>
+      <li><a href="https://sketch.io/sketchpad/" target="_blank">Sketch</a></li>
+      <li>Online tools (cloudconvert.com/jpg-to-wepb)</li>
+      <li>
+        <a href="https://cloudconvert.com/" target="_blank">Cloud Convert</a>
+      </li>
+      <li>Command-line tools</li>
+    </ul>
+    <pre>
+      <code>
+      &lt;picture&gt;
+        &lt;source
+          type="image/webp"
+          srcset="
+            Multimedia/images-lessons/meal.webp   1x,
+            Multimedia/images-lessons/meal@2x.web 2x
+          "
+        /&gt;
+        &lt;source type="image/jpeg" srcset="image/meal.jpg" /&gt;
+        &lt;img src="Multimedia/images-lessons/meal.jpg" alt="Bowl of salmon" /&gt;
+      &lt;/picture&gt;
+    </code>
+  </pre>
+
+  <h2>Art Direction</h2>
+
+  <h3>Examples</h3>
+  <p><em>Reduce the screen size to see the img reacting..</em></p>
+
+  <picture>
+    <source media="(max-width: 45rem)" srcset="Multimedia/images-lessons/meal-cropped.jpg">
+    <source media="(min-width: 46rem)" srcset="Multimedia/images-lessons/meal.jpg">
+    <img src="Multimedia/images-lessons/meal.jpg" alt="Bowls of salmon">
+  </picture>
+
+  <h2>Scalabe Vector Graphics</h2>
+
+  <img src="Multimedia/images-lessons/ufo.svg" alt="My Spaceship">
+
+  <a href="https://www.svgbackgrounds.com/" style="display: block;">SVG Backgrounds</a>
+
+  <div class="container-background-svg">
+    
+  </div>
   </body>
 </html>
