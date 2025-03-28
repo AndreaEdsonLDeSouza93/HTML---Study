@@ -64,9 +64,9 @@ td {
 }
 
 .container-background-svg {
-  height: auto;
-  width: 60vw;
+  height: 30rem;
+  width: 30rem;
   border-radius: 1.5rem;
   border: 1px solid hsl(240, 100%, 19%);
-  background: url(Multimedia/contour-line.svg);
+  background: url(https://andreaedsonldesouza93.github.io/HTML---Study/Multimedia/contour-line.svg);
 }
